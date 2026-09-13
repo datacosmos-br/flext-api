@@ -6,8 +6,6 @@ SPDX-License-Identifier: MIT
 
 from __future__ import annotations
 
-from flext_tests import FlextTestsModels
-
 from flext_api import m
 
 
@@ -19,10 +17,10 @@ class _ResponseModels:
     """Response-specific test models."""
 
 
-class TestsFlextApiModels(FlextTestsModels, m):
-    """Test models for flext-api."""
+class TestsFlextApiModels(m):
+    """Test models for flext-api — extends flext_api.m."""
 
-    class TestsFlextApi(_RequestModels, _ResponseModels, FlextTestsModels.Tests):
+    class TestsFlextApi(_RequestModels, _ResponseModels):
         """Test-specific models."""
 
 

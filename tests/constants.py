@@ -8,8 +8,6 @@ from __future__ import annotations
 
 from typing import TYPE_CHECKING
 
-from flext_tests import FlextTestsConstants
-
 from flext_api import c
 
 if TYPE_CHECKING:
@@ -24,11 +22,11 @@ class _WebConstants:
     """Web-specific test constants."""
 
 
-class TestsFlextApiConstants(FlextTestsConstants, c):
-    """Test constants for flext-api."""
+class TestsFlextApiConstants(c):
+    """Test constants for flext-api — extends flext_api.c."""
 
-    class TestsFlextApi(_ApiConstants, _WebConstants, FlextTestsConstants.Tests):
+    class TestsFlextApi(_ApiConstants, _WebConstants):
         """Test-specific constants."""
 
 
-__all__: t.MutableSequenceOf[str] = ["TestsFlextApiConstants"]
+__all__: list[str] = ["TestsFlextApiConstants"]

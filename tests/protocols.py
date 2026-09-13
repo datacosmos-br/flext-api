@@ -6,8 +6,6 @@ SPDX-License-Identifier: MIT
 
 from __future__ import annotations
 
-from flext_tests import FlextTestsProtocols
-
 from flext_api import p
 
 
@@ -19,10 +17,10 @@ class _TransportProtocols:
     """Transport-specific test protocols."""
 
 
-class TestsFlextApiProtocols(FlextTestsProtocols, p):
-    """Test protocols for flext-api."""
+class TestsFlextApiProtocols(p):
+    """Test protocols for flext-api — extends flext_api.p."""
 
-    class TestsFlextApi(_ClientProtocols, _TransportProtocols, FlextTestsProtocols.Tests):
+    class TestsFlextApi(_ClientProtocols, _TransportProtocols):
         """Test-specific protocols."""
 
 
