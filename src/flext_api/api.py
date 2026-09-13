@@ -10,6 +10,7 @@ SPDX-License-Identifier: MIT
 
 from __future__ import annotations
 
+from pydantic import ConfigDict
 from typing import ClassVar, override
 
 from . import FlextApiSettings, c, m, p, r, s, t, u
@@ -25,7 +26,7 @@ class FlextApi(s[bool]):
     100% GENERIC - no domain coupling.
     """
 
-    model_config: ClassVar[t.ConfigDict] = t.ConfigDict(use_enum_values=True)
+    model_config: ClassVar[ConfigDict] = ConfigDict(use_enum_values=True)
     _client: FlextApiClient | None = u.PrivateAttr(default_factory=lambda: None)
 
     def __init__(self, settings: FlextApiSettings | None = None) -> None:
