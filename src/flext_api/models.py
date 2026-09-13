@@ -6,8 +6,8 @@ from flext_web import m
 
 from . import t
 from ._models.base import FlextApiModelsBase
+from ._constants.config import FlextApiConstantsConfig
 from ._models.client import FlextApiModelsClient
-from ._models.config import FlextApiModelsConfig
 from ._models.request import FlextApiModelsRequest
 from ._models.response import FlextApiModelsResponse
 from ._models.storage import FlextApiModelsStorage
@@ -19,7 +19,7 @@ class FlextApiModels(m):
 
     class Api(
         FlextApiModelsBase,
-        FlextApiModelsConfig,
+        FlextApiConstantsConfig,
         FlextApiModelsRequest,
         FlextApiModelsResponse,
         FlextApiModelsClient,

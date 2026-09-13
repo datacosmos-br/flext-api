@@ -18,6 +18,4 @@ class TestsFlextApiUtilities(FlextTestsUtilities, u):
         """Test-specific utilities."""
 
 
-u = TestsFlextApiUtilities
-
-__all__: list[str] = ["TestsFlextApiUtilities", "u"]
+__all__: list[str] = ["TestsFlextApiUtilities"]

@@ -12,7 +12,7 @@ from ._utilities import (
     FlextApiUtilitiesSettingsManager,
 )
 from ._utilities.base import FlextApiUtilitiesBase
-from ._utilities.config import FlextApiUtilitiesConfig
+from ._constants.config import FlextApiConstantsConfig
 
 
 class FlextApiUtilities(u):
@@ -20,7 +20,7 @@ class FlextApiUtilities(u):
 
     class Api(
         FlextApiUtilitiesBase,
-        FlextApiUtilitiesConfig,
+        FlextApiConstantsConfig,
         FlextApiUtilitiesApiPydantic,
         FlextApiUtilitiesRequestUtils,
         FlextApiUtilitiesSerializers,

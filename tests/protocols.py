@@ -18,6 +18,4 @@ class TestsFlextApiProtocols(FlextTestsProtocols, p):
         """Test-specific protocols."""
 
 
-p = TestsFlextApiProtocols
-
-__all__: list[str] = ["TestsFlextApiProtocols", "p"]
+__all__: list[str] = ["TestsFlextApiProtocols"]

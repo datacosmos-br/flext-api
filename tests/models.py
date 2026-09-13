@@ -18,5 +18,4 @@ class TestsFlextApiModels(FlextTestsModels, m):
         """Test-specific models."""
 
 
-m = TestsFlextApiModels
-__all__: list[str] = ["TestsFlextApiModels", "m"]
+__all__: list[str] = ["TestsFlextApiModels"]

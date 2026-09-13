@@ -18,6 +18,4 @@ class TestsFlextApiTypes(FlextTestsTypes, t):
         """Test-specific type aliases."""
 
 
-t = TestsFlextApiTypes
-
-__all__: list[str] = ["TestsFlextApiTypes", "t"]
+__all__: list[str] = ["TestsFlextApiTypes"]

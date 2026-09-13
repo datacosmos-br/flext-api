@@ -20,7 +20,7 @@ from typing import TYPE_CHECKING, Annotated
 
 from flext_core import FlextSettings
 
-from . import m, u
+from . import m, t, u
 
 
 class FlextApiSettings(FlextSettings):
@@ -51,14 +51,14 @@ class FlextApiSettings(FlextSettings):
             bool, m.Field(default=True, description="Enable TLS certificate check")
         ]
         default_headers: Annotated[
-            dict[str, str],
+            t.StrMapping,
             m.Field(
                 default_factory=dict,
                 description="Default headers applied to all requests",
             ),
         ]
         headers: Annotated[
-            dict[str, str],
+            t.StrMapping,
             m.Field(default_factory=dict, description="Compatibility headers bag"),
         ]
         log_requests: Annotated[
@@ -77,7 +77,7 @@ class FlextApiSettings(FlextSettings):
 
     @u.model_validator(mode="before")
     @classmethod
-    def _lift_flat_api_fields(cls, data: object) -> object:
+    def _lift_flat_api_fields(cls, data: t.JsonValue) -> t.JsonValue:
         """Fold top-level ``_Api`` field kwargs into the ``Api`` namespace."""
         if not isinstance(data, dict):
             return data

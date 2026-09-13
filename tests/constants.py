@@ -23,5 +23,4 @@ class TestsFlextApiConstants(FlextTestsConstants, c):
         """Test-specific constants."""
 
 
-c = TestsFlextApiConstants
-__all__: t.MutableSequenceOf[str] = ["TestsFlextApiConstants", "c"]
+__all__: t.MutableSequenceOf[str] = ["TestsFlextApiConstants"]

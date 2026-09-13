@@ -22,3 +22,14 @@ class FlextApiConstantsConfig:
     CONFIG_YAML_SUFFIX: Final[str] = ".yaml"
     CONFIG_JSON_SUFFIX: Final[str] = ".json"
     CONFIG_EXPAND_MAX_PASSES: Final[int] = 10
+
+    # Model config (moved from _models/config.py for ENFORCE-079)
+    MODEL_CONFIG_FROZEN: Final[bool] = True
+    MODEL_CONFIG_STR_STRIP_WHITESPACE: Final[bool] = True
+
+    # Typings config (moved from _typings/config.py for ENFORCE-079)
+    TYPE_SYSTEM_VERSION: Final[str] = "3.13"
+
+    # Utilities config (moved from _utilities/config.py for ENFORCE-079)
+    UTILS_RETRY_DEFAULT: Final[int] = 3
+    UTILS_TIMEOUT_DEFAULT: Final[int] = 30

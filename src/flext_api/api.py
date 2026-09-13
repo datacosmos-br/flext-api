@@ -12,7 +12,7 @@ from __future__ import annotations
 
 from typing import ClassVar, override
 
-from . import FlextApiClient, FlextApiSettings, c, m, p, r, s, t, u
+from . import FlextApiSettings, c, m, p, r, s, t, u
 
 
 class FlextApi(s[bool]):
@@ -185,4 +185,4 @@ api: FlextApi = FlextApi.fetch_global()
 """Global FlextApi facade instance used as the canonical runtime entrypoint."""
 
 
-__all__: t.MutableSequenceOf[str] = ["FlextApi", "FlextApiClient", "api"]
+__all__: t.MutableSequenceOf[str] = ["FlextApi", "api"]
