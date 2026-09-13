@@ -7,7 +7,6 @@ Note: Protocols are in protocols.py, not here. Use p.Api.* for protocols.
 
 Copyright (c) 2025 FLEXT Team. All rights reserved.
 SPDX-License-Identifier: MIT
-
 """
 
 from __future__ import annotations
@@ -17,13 +16,15 @@ from collections.abc import Callable
 from flext_web import p, t, u
 
 from . import c
+from ._typings.base import FlextApiTypingsBase
+from ._typings.config import FlextApiTypingsConfig
 from ._typings.serialization import FlextApiTypingsSerialization
 
 
 class FlextApiTypes(t):
     """Unified API type definitions extending t via MRO."""
 
-    class Api(FlextApiTypingsSerialization):
+    class Api(FlextApiTypingsBase, FlextApiTypingsConfig, FlextApiTypingsSerialization):
         """API types namespace for cross-project access."""
 
         type WebHeaders = t.ScalarOrStrSequenceMapping
