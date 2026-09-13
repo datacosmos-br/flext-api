@@ -5,7 +5,9 @@ from __future__ import annotations
 from flext_web import m
 
 from . import t
+from ._models.base import FlextApiModelsBase
 from ._models.client import FlextApiModelsClient
+from ._models.config import FlextApiModelsConfig
 from ._models.request import FlextApiModelsRequest
 from ._models.response import FlextApiModelsResponse
 from ._models.storage import FlextApiModelsStorage
@@ -16,6 +18,8 @@ class FlextApiModels(m):
     """HTTP domain models for flext-api."""
 
     class Api(
+        FlextApiModelsBase,
+        FlextApiModelsConfig,
         FlextApiModelsRequest,
         FlextApiModelsResponse,
         FlextApiModelsClient,

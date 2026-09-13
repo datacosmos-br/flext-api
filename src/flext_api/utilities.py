@@ -11,12 +11,16 @@ from ._utilities import (
     FlextApiUtilitiesSerializers,
     FlextApiUtilitiesSettingsManager,
 )
+from ._utilities.base import FlextApiUtilitiesBase
+from ._utilities.config import FlextApiUtilitiesConfig
 
 
 class FlextApiUtilities(u):
     """FlextApi utilities extending FlextUtilities with API-specific helpers."""
 
     class Api(
+        FlextApiUtilitiesBase,
+        FlextApiUtilitiesConfig,
         FlextApiUtilitiesApiPydantic,
         FlextApiUtilitiesRequestUtils,
         FlextApiUtilitiesSerializers,

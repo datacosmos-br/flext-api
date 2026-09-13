@@ -5,12 +5,14 @@ from __future__ import annotations
 from flext_web import c
 
 from ._constants import FlextApiConstantsApi
+from ._constants.base import FlextApiConstantsBase
+from ._constants.config import FlextApiConstantsConfig
 
 
 class FlextApiConstants(c):
     """FlextApi domain constants extending FlextWebConstants via MRO."""
 
-    class Api(FlextApiConstantsApi):
+    class Api(FlextApiConstantsBase, FlextApiConstantsConfig, FlextApiConstantsApi):
         """API domain constants namespace."""
 
 
