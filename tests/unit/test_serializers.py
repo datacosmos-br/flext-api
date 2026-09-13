@@ -12,10 +12,9 @@ SPDX-License-Identifier: MIT
 from __future__ import annotations
 
 import pytest
-from flext_tests import tm
 
-from flext_api import Api, t
-from tests import u
+from flext_api import t, u
+from flext_tests import tm
 
 
 class TestsFlextApiSerializers:
@@ -35,7 +34,7 @@ class TestsFlextApiSerializers:
         self, packed: bytes, expected: t.JsonValue
     ) -> None:
         """Valid msgpack decodes to its JSON value inside a successful result."""
-        result = Api.unpackb(packed)
+        result = u.Api.unpackb(packed)
 
         tm.that(result.success, eq=True)
         tm.that(result.failure, eq=False)
@@ -44,21 +43,23 @@ class TestsFlextApiSerializers:
 
     def test_unpackb_success_unwraps_to_value(self) -> None:
         """unwrap() on a success yields the decoded value directly."""
-        result = Api.unpackb(b"\x81\xa3key\xa5value")
+        result = u.Api.unpackb(b"\x81\xa3key\xa5value")
 
         tm.that(result.unwrap(), eq={"key": "value"})
 
     def test_unpackb_success_supports_map_combinator(self) -> None:
         """A successful result composes through map() over its value."""
-        result = Api.unpackb(b"\x81\xa3key\xa5value").map(lambda value: [value])
+        result = u.Api.unpackb(b"\x81\xa3key\xa5value").map(
+            lambda value: [value]
+        )
 
         tm.that(result.success, eq=True)
         tm.that(result.value, eq=[{"key": "value"}])
 
     def test_unpackb_success_supports_flat_map_combinator(self) -> None:
         """A successful result chains a further fallible step via flat_map()."""
-        result = Api.unpackb(b"\x2a").flat_map(
-            lambda value: Api.unpackb(Api.packb(value))
+        result = u.Api.unpackb(b"\x2a").flat_map(
+            lambda value: u.Api.unpackb(u.Api.packb(value))
         )
 
         tm.that(result.success, eq=True)
@@ -66,7 +67,7 @@ class TestsFlextApiSerializers:
 
     def test_unpackb_invalid_input_fails(self) -> None:
         """Invalid msgpack yields a failure with an error message."""
-        result = Api.unpackb(b"\xff")
+        result = u.Api.unpackb(b"\xff")
 
         tm.that(result.success, eq=False)
         tm.that(result.failure, eq=True)
@@ -75,55 +76,53 @@ class TestsFlextApiSerializers:
     def test_packb_unpackb_roundtrip(self) -> None:
         """packb() followed by unpackb() yields the original value."""
         original: t.JsonValue = {"key": "value", "list": [1, 2, 3]}
-        packed = Api.packb(original)
-        result = Api.unpackb(packed)
+        packed = u.Api.packb(original)
+        result = u.Api.unpackb(packed)
 
         tm.that(result.success, eq=True)
         tm.that(result.value, eq=original)
 
     def test_packb_valid_input_succeeds(self) -> None:
         """Valid JSON values pack successfully."""
-        result = Api.packb({"key": "value"})
+        packed = u.Api.packb({"key": "value"})
 
-        tm.that(result.success, eq=True)
-        tm.that(isinstance(result.value, bytes), eq=True)
+        tm.that(packed, eq=b"\x81\xa3key\xa5value")
 
     def test_packb_unpackb_roundtrip_list(self) -> None:
         """Round-trip for lists."""
         original: t.JsonValue = [1, 2, 3]
-        packed = Api.packb(original)
-        result = Api.unpackb(packed)
+        packed = u.Api.packb(original)
+        result = u.Api.unpackb(packed)
 
         tm.that(result.success, eq=True)
         tm.that(result.value, eq=original)
 
     def test_packb_unpackb_roundtrip_str(self) -> None:
         """Round-trip for strings."""
-        original = "hello world"
-        packed = Api.packb(original)
-        result = Api.unpackb(packed)
+        original: t.JsonValue = "hello world"
+        packed = u.Api.packb(original)
+        result = u.Api.unpackb(packed)
 
         tm.that(result.success, eq=True)
         tm.that(result.value, eq=original)
 
     def test_packb_unpackb_roundtrip_bool(self) -> None:
         """Round-trip for booleans."""
-        original = True
-        packed = Api.packb(original)
-        result = Api.unpackb(packed)
+        original: t.JsonValue = True
+        packed = u.Api.packb(original)
+        result = u.Api.unpackb(packed)
 
         tm.that(result.success, eq=True)
         tm.that(result.value, eq=original)
 
     def test_packb_unpackb_roundtrip_none(self) -> None:
         """Round-trip for null."""
-        original = None
-        packed = Api.packb(original)
-        result = Api.unpackb(packed)
+        original: t.JsonValue = None
+        packed = u.Api.packb(original)
+        result = u.Api.unpackb(packed)
 
         tm.that(result.success, eq=True)
         tm.that(result.value, eq=original)
 
 
 __all__: list[str] = ["TestsFlextApiSerializers"]
-

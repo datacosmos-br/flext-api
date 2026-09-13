@@ -2,8 +2,6 @@
 
 from __future__ import annotations
 
-import json
-
 import httpx
 
 from ... import c, p, r, t, u
@@ -46,10 +44,12 @@ class FlextApiClientCodecMixin:
     @staticmethod
     def _deserialize_json(response: httpx.Response) -> p.Result[t.Api.ResponseBody]:
         """Deserialize response as JSON."""
+        json_result = u.Cli.json_loads(response.content)
+        if json_result.failure:
+            return r[t.Api.ResponseBody].fail_op("JSON deserialization", json_result.error)
         try:
-            json_data = json.loads(response.content)
             validated: p.Result[t.Api.ResponseBody] = u.validate_value(
-                t.Api.RESPONSE_BODY_ADAPTER, json_data
+                t.Api.RESPONSE_BODY_ADAPTER, json_result.value
             )
         except (
             ValueError,
