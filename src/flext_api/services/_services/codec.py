@@ -45,12 +45,11 @@ class FlextApiClientCodecMixin:
     def _deserialize_json(response: httpx.Response) -> p.Result[t.Api.ResponseBody]:
         """Deserialize response as JSON."""
         try:
-            json_data = getattr(response, "json")()
+            json_data = response.json()
             validated: p.Result[t.Api.ResponseBody] = u.validate_value(
                 t.Api.RESPONSE_BODY_ADAPTER, json_data
             )
         except (
-            AttributeError,
             ValueError,
             TypeError,
             KeyError,
