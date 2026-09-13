@@ -72,7 +72,7 @@ class FlextApiExamplesBasicUsage(FlextApiServiceBase[t.JsonMapping]):
         self._emit("=======================")
 
         self._emit("\n1. Setup via s/base.py")
-        runtime_snapshot: t.JsonMapping = {
+        runtime_snapshot: t.JsonValue = {
             "base_url": settings.Api.base_url,
             "timeout": settings.Api.timeout,
             "max_retries": settings.Api.max_retries,
