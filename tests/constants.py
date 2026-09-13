@@ -16,10 +16,18 @@ if TYPE_CHECKING:
     from tests import t
 
 
+class _ApiConstants:
+    """API-specific test constants."""
+
+
+class _WebConstants:
+    """Web-specific test constants."""
+
+
 class TestsFlextApiConstants(FlextTestsConstants, c):
     """Test constants for flext-api."""
 
-    class Tests(FlextTestsConstants.Tests):
+    class TestsFlextApi(_ApiConstants, _WebConstants, FlextTestsConstants.Tests):
         """Test-specific constants."""
 
 

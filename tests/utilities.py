@@ -11,10 +11,18 @@ from flext_tests import FlextTestsUtilities
 from flext_api import u
 
 
+class _RequestUtilities:
+    """Request-specific test utilities."""
+
+
+class _ResponseUtilities:
+    """Response-specific test utilities."""
+
+
 class TestsFlextApiUtilities(FlextTestsUtilities, u):
     """Test utilities for flext-api."""
 
-    class Tests(FlextTestsUtilities.Tests):
+    class TestsFlextApi(_RequestUtilities, _ResponseUtilities, FlextTestsUtilities.Tests):
         """Test-specific utilities."""
 
 

@@ -5,6 +5,7 @@ from __future__ import annotations
 from flext_web import u
 
 from . import t
+from ._constants.config import FlextApiConstantsConfig
 from ._utilities import (
     FlextApiUtilitiesApiPydantic,
     FlextApiUtilitiesRequestUtils,
@@ -12,7 +13,6 @@ from ._utilities import (
     FlextApiUtilitiesSettingsManager,
 )
 from ._utilities.base import FlextApiUtilitiesBase
-from ._constants.config import FlextApiConstantsConfig
 
 
 class FlextApiUtilities(u):

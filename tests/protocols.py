@@ -11,10 +11,18 @@ from flext_tests import FlextTestsProtocols
 from flext_api import p
 
 
+class _ClientProtocols:
+    """Client-specific test protocols."""
+
+
+class _TransportProtocols:
+    """Transport-specific test protocols."""
+
+
 class TestsFlextApiProtocols(FlextTestsProtocols, p):
     """Test protocols for flext-api."""
 
-    class Tests(FlextTestsProtocols.Tests):
+    class TestsFlextApi(_ClientProtocols, _TransportProtocols, FlextTestsProtocols.Tests):
         """Test-specific protocols."""
 
 

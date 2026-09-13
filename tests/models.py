@@ -11,10 +11,18 @@ from flext_tests import FlextTestsModels
 from flext_api import m
 
 
+class _RequestModels:
+    """Request-specific test models."""
+
+
+class _ResponseModels:
+    """Response-specific test models."""
+
+
 class TestsFlextApiModels(FlextTestsModels, m):
     """Test models for flext-api."""
 
-    class Tests(FlextTestsModels.Tests):
+    class TestsFlextApi(_RequestModels, _ResponseModels, FlextTestsModels.Tests):
         """Test-specific models."""
 
 

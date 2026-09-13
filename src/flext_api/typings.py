@@ -16,15 +16,17 @@ from collections.abc import Callable
 from flext_web import p, t, u
 
 from . import c
-from ._typings.base import FlextApiTypingsBase
 from ._constants.config import FlextApiConstantsConfig
+from ._typings.base import FlextApiTypingsBase
 from ._typings.serialization import FlextApiTypingsSerialization
 
 
 class FlextApiTypes(t):
     """Unified API type definitions extending t via MRO."""
 
-    class Api(FlextApiTypingsBase, FlextApiConstantsConfig, FlextApiTypingsSerialization):
+    class Api(
+        FlextApiTypingsBase, FlextApiConstantsConfig, FlextApiTypingsSerialization
+    ):
         """API types namespace for cross-project access."""
 
         type WebHeaders = t.ScalarOrStrSequenceMapping

@@ -21,6 +21,4 @@ class TestsFlextApiServiceBase(tests_s):
         return m.RuntimeBootstrapOptions(settings_type=TestsFlextApiSettings)
 
 
-s = TestsFlextApiServiceBase
-
-__all__: list[str] = ["TestsFlextApiServiceBase", "s"]
+__all__: list[str] = ["TestsFlextApiServiceBase"]
