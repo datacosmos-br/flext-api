@@ -9,18 +9,17 @@ from typing import TYPE_CHECKING
 from flext_core.lazy import build_lazy_import_map, install_lazy_exports
 
 if TYPE_CHECKING:
-    from flext_tests import FlextTestsConstants, d, e, h, r, td, tf, tk, tm, tv, x
+    from flext_tests import c, d, e, h, m, p, r, s, t, td, tf, tk, tm, tv, u, x
 
     from . import unit
-    from .base import TestsFlextApiServiceBase, TestsFlextApiServiceBase as s
-    from .constants import TestsFlextApiConstants, TestsFlextApiConstants as c
-    from .models import TestsFlextApiModels, TestsFlextApiModels as m
-    from .protocols import TestsFlextApiProtocols, TestsFlextApiProtocols as p
+    from .base import TestsFlextApiServiceBase
+    from .constants import TestsFlextApiConstants
+    from .models import TestsFlextApiModels
+    from .protocols import TestsFlextApiProtocols
     from .settings import TestsFlextApiSettings
-    from .typings import TestsFlextApiTypes, TestsFlextApiTypes as t
-    from .utilities import TestsFlextApiUtilities, TestsFlextApiUtilities as u
+    from .typings import TestsFlextApiTypes
+    from .utilities import TestsFlextApiUtilities
 __all__: tuple[str, ...] = (
-    "FlextTestsConstants",
     "TestsFlextApiConstants",
     "TestsFlextApiModels",
     "TestsFlextApiProtocols",
@@ -50,25 +49,30 @@ __all__: tuple[str, ...] = (
 _LAZY_IMPORTS = MappingProxyType(
     build_lazy_import_map(
         MappingProxyType({
-            ".base": ("TestsFlextApiServiceBase", "s"),
-            ".constants": ("TestsFlextApiConstants", "c"),
-            ".models": ("TestsFlextApiModels", "m"),
-            ".protocols": ("TestsFlextApiProtocols", "p"),
+            ".base": ("TestsFlextApiServiceBase",),
+            ".constants": ("TestsFlextApiConstants",),
+            ".models": ("TestsFlextApiModels",),
+            ".protocols": ("TestsFlextApiProtocols",),
             ".settings": ("TestsFlextApiSettings",),
-            ".typings": ("TestsFlextApiTypes", "t"),
+            ".typings": ("TestsFlextApiTypes",),
             ".unit": ("unit",),
-            ".utilities": ("TestsFlextApiUtilities", "u"),
+            ".utilities": ("TestsFlextApiUtilities",),
             "flext_tests": (
-                "FlextTestsConstants",
+                "c",
                 "d",
                 "e",
                 "h",
+                "m",
+                "p",
                 "r",
+                "s",
+                "t",
                 "td",
                 "tf",
                 "tk",
                 "tm",
                 "tv",
+                "u",
                 "x",
             ),
         }),

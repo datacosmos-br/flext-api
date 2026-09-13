@@ -12,8 +12,12 @@ if TYPE_CHECKING:
     from .api import FlextApiConstantsApi
     from .api_enums import FlextApiConstantsEnums
     from .api_values import FlextApiConstantsValues
+    from .base import FlextApiConstantsBase
+    from .config import FlextApiConstantsConfig
 __all__: tuple[str, ...] = (
     "FlextApiConstantsApi",
+    "FlextApiConstantsBase",
+    "FlextApiConstantsConfig",
     "FlextApiConstantsEnums",
     "FlextApiConstantsValues",
 )
@@ -24,6 +28,8 @@ _LAZY_IMPORTS = MappingProxyType(
             ".api": ("FlextApiConstantsApi",),
             ".api_enums": ("FlextApiConstantsEnums",),
             ".api_values": ("FlextApiConstantsValues",),
+            ".base": ("FlextApiConstantsBase",),
+            ".config": ("FlextApiConstantsConfig",),
         }),
         alias_groups=MappingProxyType({}),
         sort_keys=False,

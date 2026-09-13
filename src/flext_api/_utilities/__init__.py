@@ -10,11 +10,13 @@ from flext_core.lazy import build_lazy_import_map, install_lazy_exports
 
 if TYPE_CHECKING:
     from .api_pydantic import FlextApiUtilitiesApiPydantic
+    from .base import FlextApiUtilitiesBase
     from .request_utils import FlextApiUtilitiesRequestUtils
     from .serializers import FlextApiUtilitiesSerializers
     from .settings_manager import FlextApiUtilitiesSettingsManager
 __all__: tuple[str, ...] = (
     "FlextApiUtilitiesApiPydantic",
+    "FlextApiUtilitiesBase",
     "FlextApiUtilitiesRequestUtils",
     "FlextApiUtilitiesSerializers",
     "FlextApiUtilitiesSettingsManager",
@@ -24,6 +26,7 @@ _LAZY_IMPORTS = MappingProxyType(
     build_lazy_import_map(
         MappingProxyType({
             ".api_pydantic": ("FlextApiUtilitiesApiPydantic",),
+            ".base": ("FlextApiUtilitiesBase",),
             ".request_utils": ("FlextApiUtilitiesRequestUtils",),
             ".serializers": ("FlextApiUtilitiesSerializers",),
             ".settings_manager": ("FlextApiUtilitiesSettingsManager",),

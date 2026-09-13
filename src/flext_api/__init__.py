@@ -27,6 +27,7 @@ if TYPE_CHECKING:
     from ._settings import FlextApiSettings, settings
     from .api import FlextApi, api
     from .base import FlextApiServiceBase, FlextApiServiceBase as s
+    from .cli import FlextApiCli
     from .constants import FlextApiConstants, FlextApiConstants as c
     from .models import FlextApiModels, FlextApiModels as m
     from .protocols import FlextApiProtocols, FlextApiProtocols as p
@@ -35,6 +36,7 @@ if TYPE_CHECKING:
     from .utilities import FlextApiUtilities, FlextApiUtilities as u
 __all__: tuple[str, ...] = (
     "FlextApi",
+    "FlextApiCli",
     "FlextApiClient",
     "FlextApiConfig",
     "FlextApiConstants",
@@ -76,6 +78,7 @@ _LAZY_IMPORTS = MappingProxyType(
             "._settings": ("FlextApiSettings", "settings"),
             ".api": ("FlextApi", "api"),
             ".base": ("FlextApiServiceBase", "s"),
+            ".cli": ("FlextApiCli",),
             ".constants": ("FlextApiConstants", "c"),
             ".models": ("FlextApiModels", "m"),
             ".protocols": ("FlextApiProtocols", "p"),

@@ -1,5 +1,5 @@
 # AUTO-GENERATED FILE — Regenerate with: make gen
-"""Flext Api. Services package."""
+"""Flext Api.services. Services package."""
 
 from __future__ import annotations
 

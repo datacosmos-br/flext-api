@@ -9,12 +9,25 @@ from typing import TYPE_CHECKING
 from flext_core.lazy import build_lazy_import_map, install_lazy_exports
 
 if TYPE_CHECKING:
+    from . import _services
+    from ._services.codec import FlextApiClientCodecMixin
+    from ._services.request import FlextApiClientRequestMixin
     from .client import FlextApiClient
-__all__: tuple[str, ...] = ("FlextApiClient",)
+__all__: tuple[str, ...] = (
+    "FlextApiClient",
+    "FlextApiClientCodecMixin",
+    "FlextApiClientRequestMixin",
+    "_services",
+)
 
 _LAZY_IMPORTS = MappingProxyType(
     build_lazy_import_map(
-        MappingProxyType({".client": ("FlextApiClient",)}),
+        MappingProxyType({
+            "._services": ("_services",),
+            "._services.codec": ("FlextApiClientCodecMixin",),
+            "._services.request": ("FlextApiClientRequestMixin",),
+            ".client": ("FlextApiClient",),
+        }),
         alias_groups=MappingProxyType({}),
         sort_keys=False,
     )
