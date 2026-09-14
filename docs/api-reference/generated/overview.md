@@ -1,4 +1,4 @@
-# FLEXT Workspace API Overview
+# flext-api API Overview
 
 <!-- TOC START -->
 - [Next Pages](#next-pages)
@@ -6,15 +6,27 @@
 
 <!-- AUTO-GENERATED — DO NOT EDIT MANUALLY -->
 
+- Package: `flext_api`
 - Version: `0.12.0rc0`
 - Description: FLEXT API - High-Performance REST API with FastAPI
-- Governed projects: `0`
-- Project classes: _none_
-
-Generated from workspace discovery, `pyproject.toml`, public exports, and
-docstrings.
+- Doc summary: Flext Api package.
+- Classifiers: `Development Status :: 3 - Alpha`, `Framework :: FastAPI`,
+  `Intended Audience :: Developers`, `Operating System :: OS Independent`,
+  `Programming Language :: Python :: 3 :: Only`, `Programming Language :: Python
+  :: 3.13` (+3 more)
+- Project class: `platform`
+- Keywords: `enterprise`, `fastapi`, `flext`, `http`, `rest`, `typed`
+- Main facades: `FlextApi`, `FlextApiCli`, `FlextApiClient`, `FlextApiConfig`,
+  `FlextApiConstants`, `FlextApiModels`, `FlextApiProtocols`,
+  `FlextApiServiceBase` (+3 more)
+- Alias exports: `c`, `d`, `e`, `h`, `m`, `p`, `r`, `s`, `t`, `u`, `x`
+- Public symbol exports: `FlextApi`, `FlextApiCli`, `FlextApiClient`,
+  `FlextApiConfig`, `FlextApiConstants`, `FlextApiModels`, `FlextApiProtocols`,
+  `FlextApiServiceBase`, `FlextApiSettings`, `FlextApiTypes` (+3 more)
+- Exported module shortcuts: `api`, `services`
+- Generated module pages: `10`
 
 ## Next Pages
 
-- [Workspace Module Pages](projects/index.md)
-- [Project Catalog](../../projects/generated/catalog.md)
+- [Public API](public-api.md)
+- [Module Index](modules/index.md)

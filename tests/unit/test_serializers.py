@@ -12,15 +12,13 @@ SPDX-License-Identifier: MIT
 from __future__ import annotations
 
 import pytest
+from flext_tests import tm
 
 from flext_api import t, u
-from flext_tests import tm
 
 
 class TestsFlextApiSerializers:
     """Public-contract behavior of packb/unpackb."""
-
-    # ---- unpackb success --------------------------------------------------
 
     @pytest.mark.parametrize(
         ("packed", "expected"),
