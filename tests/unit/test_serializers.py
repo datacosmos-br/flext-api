@@ -68,7 +68,7 @@ class TestsFlextApiSerializers:
 
         tm.that(result.success, eq=False)
         tm.that(result.failure, eq=True)
-        tm.that(result.error, is_str=True)
+        tm.that(result.error, is_=str, empty=False)
 
     def test_packb_unpackb_roundtrip(self) -> None:
         """packb() followed by unpackb() yields the original value."""
@@ -121,7 +121,7 @@ class TestsFlextApiSerializers:
         result = u.Api.unpackb(b"\xc0")
 
         tm.that(result.failure, eq=True)
-        tm.that(result.error, is_str=True)
+        tm.that(result.error, is_=str, empty=False)
 
     def test_packb_unpackb_roundtrip_nested_none(self) -> None:
         """Null values inside a collection survive a round-trip."""
