@@ -46,7 +46,9 @@ class FlextApiClientCodecMixin:
         """Deserialize response as JSON."""
         json_result = u.Cli.json_loads(response.content)
         if json_result.failure:
-            return r[t.Api.ResponseBody].fail_op("JSON deserialization", json_result.error)
+            return r[t.Api.ResponseBody].fail_op(
+                "JSON deserialization", json_result.error
+            )
         try:
             validated: p.Result[t.Api.ResponseBody] = u.validate_value(
                 t.Api.RESPONSE_BODY_ADAPTER, json_result.value

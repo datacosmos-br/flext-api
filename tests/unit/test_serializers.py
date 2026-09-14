@@ -47,9 +47,7 @@ class TestsFlextApiSerializers:
 
     def test_unpackb_success_supports_map_combinator(self) -> None:
         """A successful result composes through map() over its value."""
-        result = u.Api.unpackb(b"\x81\xa3key\xa5value").map(
-            lambda value: [value]
-        )
+        result = u.Api.unpackb(b"\x81\xa3key\xa5value").map(lambda value: [value])
 
         tm.that(result.success, eq=True)
         tm.that(result.value, eq=[{"key": "value"}])
