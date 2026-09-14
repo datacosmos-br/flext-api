@@ -26,6 +26,7 @@ class TestsFlextApiSerializers:
             (b"\x81\xa3key\xa5value", {"key": "value"}),
             (b"\x93\x01\x02\x03", [1, 2, 3]),
             (b"\x2a", 42),
+            (b"\xff", -1),
         ],
     )
     def test_unpackb_valid_input_succeeds(
@@ -63,7 +64,7 @@ class TestsFlextApiSerializers:
 
     def test_unpackb_invalid_input_fails(self) -> None:
         """Invalid msgpack yields a failure with an error message."""
-        result = u.Api.unpackb(b"\xff")
+        result = u.Api.unpackb(b"\xc1")
 
         tm.that(result.success, eq=False)
         tm.that(result.failure, eq=True)
