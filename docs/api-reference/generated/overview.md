@@ -22,7 +22,7 @@
 - Alias exports: `c`, `d`, `e`, `h`, `m`, `p`, `r`, `s`, `t`, `u`, `x`
 - Public symbol exports: `FlextApi`, `FlextApiCli`, `FlextApiClient`,
   `FlextApiClientBase`, `FlextApiConfig`, `FlextApiConstants`, `FlextApiModels`,
-  `FlextApiProtocols`, `FlextApiServiceBase`, `FlextApiSettings` (+4 more)
+  `FlextApiProtocols`, `FlextApiServiceBase`, `FlextApiSettings` (+11 more)
 - Exported module shortcuts: `api`, `services`
 - Generated module pages: `11`
 
