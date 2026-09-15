@@ -7,7 +7,7 @@ import httpx
 from flext_api import p
 
 
-class TestsTransportsFacadeHttpx:
+class TestsFlextApiTransportsFacadeHttpx:
     """Httpx primitives surface identity and behavior through the owner."""
 
     def test_client_primitives_are_the_owner_types(self) -> None:
@@ -36,4 +36,4 @@ class TestsTransportsFacadeHttpx:
             assert client.is_closed is False
         finally:
             client.close()
-        assert client.is_closed is True
+        assert client.is_closed

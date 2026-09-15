@@ -6,19 +6,9 @@ from typing import TYPE_CHECKING, override
 
 from .. import FlextApiSettings, p, r, s, t, u
 
-if TYPE_CHECKING:
-    settings: FlextApiSettings
-
 
 class FlextApiClientBase(s[bool]):
     """Base HTTP client using FLEXT patterns."""
-
-    if TYPE_CHECKING:
-        # Runtime settings resolve through the core service property; the
-        # declaration only narrows the contract for static consumers. A
-        # pydantic field here would shadow the core `settings` property and
-        # fail the fleet-wide warnings-as-errors gate.
-        settings: FlextApiSettings
 
     def __init__(self, settings: FlextApiSettings | None = None) -> None:
         """Bind the client to explicit settings or the global singleton."""

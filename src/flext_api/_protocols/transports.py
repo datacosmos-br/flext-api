@@ -11,7 +11,9 @@ SPDX-License-Identifier: MIT
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Final, override
+from typing import TYPE_CHECKING, override
+
+from abc import ABCMeta
 
 import httpx
 
@@ -29,26 +31,31 @@ if TYPE_CHECKING:
 class FlextApiProtocolsTransports:
     """FLEXT API transport implementations."""
 
-    class Httpx:
-        """Owner facade for the httpx transport primitives.
+    class HttpxMeta(ABCMeta):
+        """Metaclass providing httpx type resolution as class attributes."""
 
-        Consumers route every httpx dependency through this namespace so no
-        consumer module imports httpx directly (transport ownership stays
-        with flext-api, ENFORCE-070). The status constant is derived from the
-        httpx owner at import time, never restated as a literal here. Members
-        stay real class objects so consumer isinstance/narrowing keeps its
-        runtime and static meaning (PEP 695 alias objects would neither be
-        valid isinstance second arguments nor narrow in mypy).
-        """
+        def __getattribute__(cls, name: str) -> object:
+            if name == "Client":
+                return httpx.Client
+            if name == "AsyncClient":
+                return httpx.AsyncClient
+            if name == "Response":
+                return httpx.Response
+            if name == "HTTPError":
+                return httpx.HTTPError
+            if name == "HTTPStatusError":
+                return httpx.HTTPStatusError
+            if name == "RequestError":
+                return httpx.RequestError
+            if name == "TimeoutException":
+                return httpx.TimeoutException
+            if name == "CONFLICT":
+                return int(httpx.codes.CONFLICT)
+            return ABCMeta.__getattribute__(cls, name)
 
-        Client = httpx.Client
-        AsyncClient = httpx.AsyncClient
-        Response = httpx.Response
-        HTTPError = httpx.HTTPError
-        HTTPStatusError = httpx.HTTPStatusError
-        RequestError = httpx.RequestError
-        TimeoutException = httpx.TimeoutException
-        CONFLICT: Final[int] = int(httpx.codes.CONFLICT)
+    class Httpx(metaclass=HttpxMeta):
+        """Owner facade for the httpx transport primitives."""
+
 
     # Why: no member here carries @abstractmethod (TransportPlugin's Protocol
     # bodies are structural, not abstract), so an explicit ABC base added
