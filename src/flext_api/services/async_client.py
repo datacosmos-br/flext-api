@@ -4,27 +4,13 @@ from __future__ import annotations
 
 from typing import override
 
-from .. import FlextApiSettings, p, r, s, t, u
+from .. import p, r, t, u
 from ._services import FlextApiClientAsyncRequestMixin
+from .base_client import FlextApiClientBase
 
 
-class FlextApiAsyncClient(FlextApiClientAsyncRequestMixin, s[bool]):
+class FlextApiAsyncClient(FlextApiClientAsyncRequestMixin, FlextApiClientBase):
     """Generic async HTTP client using FLEXT patterns."""
-
-    def __init__(self, settings: FlextApiSettings | None = None) -> None:
-        """Bind the client to explicit settings or the global singleton."""
-        resolved = settings if settings is not None else FlextApiSettings.fetch_global()
-        s.__init__(self, runtime_settings=resolved)
-
-    @property
-    def base_url(self) -> str:
-        """The configured API base URL."""
-        return self.settings.Api.base_url
-
-    @property
-    def timeout(self) -> float:
-        """The configured request timeout in seconds."""
-        return self.settings.Api.timeout
 
     @override
     def execute(self, **kwargs: t.Scalar) -> p.Result[bool]:
@@ -36,4 +22,4 @@ class FlextApiAsyncClient(FlextApiClientAsyncRequestMixin, s[bool]):
         return r[bool].ok(True)
 
 
-__all__: t.MutableSequenceOf[str] = ["FlextApiAsyncClient"]
+__all: t.MutableSequenceOf[str] = ["FlextApiAsyncClient"]

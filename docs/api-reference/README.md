@@ -25,8 +25,8 @@ This section is generated from public exports and real docstrings.
 
 ## Surface Summary
 
-- Primary facades: `FlextApi`, `FlextApiAsyncClient`, `FlextApiCli`,
-  `FlextApiClient`, `FlextApiConfig`, `FlextApiConstants` (+6 more)
+- Primary facades: `FlextApi`, `FlextApiCli`, `FlextApiClient`,
+  `FlextApiClientBase`, `FlextApiConfig`, `FlextApiConstants` (+6 more)
 - Generated module pages: `11`
 
 Back to [project docs](../index.md).
