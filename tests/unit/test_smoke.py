@@ -14,10 +14,10 @@ from flext_tests import tm
 
 from flext_api import FlextApi, FlextApiClient, FlextApiSettings, c
 
-from ._model_contract import FlextApiModelContractTests
+from .model_contract import TestsFlextApiModelContract
 
 
-class TestsFlextApiSmoke(FlextApiModelContractTests):
+class TestsFlextApiSmoke(TestsFlextApiModelContract):
     """Behavioral contract of the flext-api public surface."""
 
     # ---- Constants contract ---------------------------------------------

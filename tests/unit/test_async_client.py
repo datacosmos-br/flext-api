@@ -16,10 +16,10 @@ from flext_tests import tm
 
 from flext_api import FlextApiAsyncClient, FlextApiSettings
 
-from ._model_contract import FlextApiModelContractTests
+from .model_contract import TestsFlextApiModelContract
 
 
-class TestsFlextApiAsyncClientSmoke(FlextApiModelContractTests):
+class TestsFlextApiAsyncClientSmoke(TestsFlextApiModelContract):
     """Behavioral contract of the flext-api async client public surface."""
 
     # ---- Client / facade contract ---------------------------------------
