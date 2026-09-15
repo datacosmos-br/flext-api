@@ -1,0 +1,5 @@
+{
+  "backend": "dolt",
+  "database": "dolt",
+  "dolt_database": "flext"
+}
