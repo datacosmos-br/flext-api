@@ -11,9 +11,8 @@ SPDX-License-Identifier: MIT
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, override
-
 from abc import ABCMeta
+from typing import TYPE_CHECKING, override
 
 import httpx
 
@@ -55,7 +54,6 @@ class FlextApiProtocolsTransports:
 
     class Httpx(metaclass=HttpxMeta):
         """Owner facade for the httpx transport primitives."""
-
 
     # Why: no member here carries @abstractmethod (TransportPlugin's Protocol
     # bodies are structural, not abstract), so an explicit ABC base added
