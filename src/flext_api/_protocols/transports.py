@@ -36,16 +36,18 @@ class FlextApiProtocolsTransports:
         consumer module imports httpx directly (transport ownership stays
         with flext-api, ENFORCE-070). The status constant is derived from the
         httpx owner at import time, never restated as a literal here. Members
-        are declared as TypeAlias so static consumers resolve them as types.
+        stay real class objects so consumer isinstance/narrowing keeps its
+        runtime and static meaning (PEP 695 alias objects would neither be
+        valid isinstance second arguments nor narrow in mypy).
         """
 
-        type Client = httpx.Client
-        type AsyncClient = httpx.AsyncClient
-        type Response = httpx.Response
-        type HTTPError = httpx.HTTPError
-        type HTTPStatusError = httpx.HTTPStatusError
-        type RequestError = httpx.RequestError
-        type TimeoutException = httpx.TimeoutException
+        Client = httpx.Client
+        AsyncClient = httpx.AsyncClient
+        Response = httpx.Response
+        HTTPError = httpx.HTTPError
+        HTTPStatusError = httpx.HTTPStatusError
+        RequestError = httpx.RequestError
+        TimeoutException = httpx.TimeoutException
         CONFLICT: Final[int] = int(httpx.codes.CONFLICT)
 
     # Why: no member here carries @abstractmethod (TransportPlugin's Protocol
