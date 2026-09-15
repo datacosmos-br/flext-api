@@ -21,9 +21,9 @@ __all__: tuple[str, ...] = (
 _LAZY_IMPORTS = MappingProxyType(
     build_lazy_import_map(
         MappingProxyType({
+            ".async_request": ("FlextApiClientAsyncRequestMixin",),
             ".codec": ("FlextApiClientCodecMixin",),
             ".request": ("FlextApiClientRequestMixin",),
-            ".async_request": ("FlextApiClientAsyncRequestMixin",),
         }),
         alias_groups=MappingProxyType({}),
         sort_keys=False,

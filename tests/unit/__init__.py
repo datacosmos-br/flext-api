@@ -11,8 +11,10 @@ from flext_core.lazy import build_lazy_import_map, install_lazy_exports
 if TYPE_CHECKING:
     from flext_tests import c, d, e, h, m, p, r, s, t, td, tf, tk, tm, tv, u, x
 
+    from .test_async_client import TestsFlextApiAsyncClientSmoke
     from .test_serializers import TestsFlextApiSerializers
 __all__: tuple[str, ...] = (
+    "TestsFlextApiAsyncClientSmoke",
     "TestsFlextApiSerializers",
     "c",
     "d",
@@ -35,6 +37,7 @@ __all__: tuple[str, ...] = (
 _LAZY_IMPORTS = MappingProxyType(
     build_lazy_import_map(
         MappingProxyType({
+            ".test_async_client": ("TestsFlextApiAsyncClientSmoke",),
             ".test_serializers": ("TestsFlextApiSerializers",),
             "flext_tests": (
                 "c",

@@ -16,15 +16,15 @@
   :: 3.13` (+3 more)
 - Project class: `domain`
 - Keywords: `enterprise`, `fastapi`, `flext`, `http`, `rest`, `typed`
-- Main facades: `FlextApi`, `FlextApiCli`, `FlextApiClient`, `FlextApiConfig`,
-  `FlextApiConstants`, `FlextApiModels`, `FlextApiProtocols`,
-  `FlextApiServiceBase` (+3 more)
+- Main facades: `FlextApi`, `FlextApiAsyncClient`, `FlextApiCli`,
+  `FlextApiClient`, `FlextApiConfig`, `FlextApiConstants`, `FlextApiModels`,
+  `FlextApiProtocols` (+4 more)
 - Alias exports: `c`, `d`, `e`, `h`, `m`, `p`, `r`, `s`, `t`, `u`, `x`
-- Public symbol exports: `FlextApi`, `FlextApiCli`, `FlextApiClient`,
-  `FlextApiConfig`, `FlextApiConstants`, `FlextApiModels`, `FlextApiProtocols`,
-  `FlextApiServiceBase`, `FlextApiSettings`, `FlextApiTypes` (+3 more)
+- Public symbol exports: `FlextApi`, `FlextApiAsyncClient`, `FlextApiCli`,
+  `FlextApiClient`, `FlextApiConfig`, `FlextApiConstants`, `FlextApiModels`,
+  `FlextApiProtocols`, `FlextApiServiceBase`, `FlextApiSettings` (+4 more)
 - Exported module shortcuts: `api`, `services`
-- Generated module pages: `10`
+- Generated module pages: `11`
 
 ## Next Pages
 

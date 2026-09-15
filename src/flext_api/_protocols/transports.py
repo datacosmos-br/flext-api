@@ -11,7 +11,7 @@ SPDX-License-Identifier: MIT
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, override
+from typing import TYPE_CHECKING, Final, override
 
 import httpx
 
@@ -35,17 +35,18 @@ class FlextApiProtocolsTransports:
         Consumers route every httpx dependency through this namespace so no
         consumer module imports httpx directly (transport ownership stays
         with flext-api, ENFORCE-070). The status constant is derived from the
-        httpx owner at import time, never restated as a literal here.
+        httpx owner at import time, never restated as a literal here. Members
+        are declared as TypeAlias so static consumers resolve them as types.
         """
 
-        Client = httpx.Client
-        AsyncClient = httpx.AsyncClient
-        Response = httpx.Response
-        HTTPError = httpx.HTTPError
-        HTTPStatusError = httpx.HTTPStatusError
-        RequestError = httpx.RequestError
-        TimeoutException = httpx.TimeoutException
-        CONFLICT: int = int(httpx.codes.CONFLICT)
+        type Client = httpx.Client
+        type AsyncClient = httpx.AsyncClient
+        type Response = httpx.Response
+        type HTTPError = httpx.HTTPError
+        type HTTPStatusError = httpx.HTTPStatusError
+        type RequestError = httpx.RequestError
+        type TimeoutException = httpx.TimeoutException
+        CONFLICT: Final[int] = int(httpx.codes.CONFLICT)
 
     # Why: no member here carries @abstractmethod (TransportPlugin's Protocol
     # bodies are structural, not abstract), so an explicit ABC base added

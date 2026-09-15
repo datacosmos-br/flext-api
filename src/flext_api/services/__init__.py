@@ -28,11 +28,11 @@ _LAZY_IMPORTS = MappingProxyType(
     build_lazy_import_map(
         MappingProxyType({
             "._services": ("_services",),
+            "._services.async_request": ("FlextApiClientAsyncRequestMixin",),
             "._services.codec": ("FlextApiClientCodecMixin",),
             "._services.request": ("FlextApiClientRequestMixin",),
-            "._services.async_request": ("FlextApiClientAsyncRequestMixin",),
-            ".client": ("FlextApiClient",),
             ".async_client": ("FlextApiAsyncClient",),
+            ".client": ("FlextApiClient",),
         }),
         alias_groups=MappingProxyType({}),
         sort_keys=False,
