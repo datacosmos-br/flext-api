@@ -62,8 +62,8 @@ class TestsFlextApiSerializers:
         tm.that(result.value, eq=42)
 
     def test_unpackb_invalid_input_fails(self) -> None:
-        """Invalid msgpack yields a failure with an error message."""
-        result = u.Api.unpackb(b"\xd4")
+        """Incomplete msgpack input yields a failure with an error message."""
+        result = u.Api.unpackb(b"\xd9")
 
         tm.that(result.success, eq=False)
         tm.that(result.failure, eq=True)
