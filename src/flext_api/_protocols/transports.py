@@ -29,6 +29,24 @@ if TYPE_CHECKING:
 class FlextApiProtocolsTransports:
     """FLEXT API transport implementations."""
 
+    class Httpx:
+        """Owner facade for the httpx transport primitives.
+
+        Consumers route every httpx dependency through this namespace so no
+        consumer module imports httpx directly (transport ownership stays
+        with flext-api, ENFORCE-070). The status constant is derived from the
+        httpx owner at import time, never restated as a literal here.
+        """
+
+        Client = httpx.Client
+        AsyncClient = httpx.AsyncClient
+        Response = httpx.Response
+        HTTPError = httpx.HTTPError
+        HTTPStatusError = httpx.HTTPStatusError
+        RequestError = httpx.RequestError
+        TimeoutException = httpx.TimeoutException
+        CONFLICT: int = int(httpx.codes.CONFLICT)
+
     # Why: no member here carries @abstractmethod (TransportPlugin's Protocol
     # bodies are structural, not abstract), so an explicit ABC base added
     # nothing but tripped pyrefly's direct-abstract-base-instantiation check
