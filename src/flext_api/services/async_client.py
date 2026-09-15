@@ -22,4 +22,4 @@ class FlextApiAsyncClient(FlextApiClientAsyncRequestMixin, FlextApiClientBase):
         return r[bool].ok(True)
 
 
-__all: t.MutableSequenceOf[str] = ["FlextApiAsyncClient"]
+__all__: t.MutableSequenceOf[str] = ["FlextApiAsyncClient"]

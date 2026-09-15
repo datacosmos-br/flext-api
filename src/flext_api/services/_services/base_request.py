@@ -16,7 +16,11 @@ if TYPE_CHECKING:
 class FlextApiClientBaseRequestMixin(FlextApiClientCodecMixin):
     """Shared request execution helpers for sync and async clients."""
 
-    settings: FlextApiSettings
+    if TYPE_CHECKING:
+        # Narrowed view of the core service settings property; never a
+        # pydantic field, so the runtime `settings` property of the service
+        # base stays the single binding point and no shadowing warning fires.
+        settings: FlextApiSettings
 
     def _build_url(self, path: str) -> p.Result[str]:
         """Build full URL from base_url and path."""

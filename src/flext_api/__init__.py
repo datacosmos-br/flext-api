@@ -41,12 +41,14 @@ if TYPE_CHECKING:
         HttpxResponse,
         HttpxTimeoutException,
     )
+    from .services.async_client import FlextApiAsyncClient
     from .services.base_client import FlextApiClientBase
     from .services.client import FlextApiClient
     from .typings import FlextApiTypes, FlextApiTypes as t
     from .utilities import FlextApiUtilities, FlextApiUtilities as u
 __all__: tuple[str, ...] = (
     "FlextApi",
+    "FlextApiAsyncClient",
     "FlextApiCli",
     "FlextApiClient",
     "FlextApiClientBase",
@@ -112,6 +114,7 @@ _LAZY_IMPORTS = MappingProxyType(
                 "p",
             ),
             ".services": ("services",),
+            ".services.async_client": ("FlextApiAsyncClient",),
             ".services.base_client": ("FlextApiClientBase",),
             ".services.client": ("FlextApiClient",),
             ".typings": ("FlextApiTypes", "t"),
