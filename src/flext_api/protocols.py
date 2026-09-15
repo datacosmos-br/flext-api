@@ -39,4 +39,8 @@ class FlextApiProtocols(p):
 
 p = FlextApiProtocols
 
-__all__: list[str] = ["FlextApiProtocols", "p"]
+__all__: list[str] = [
+    "FlextApiProtocols",
+    "FlextApiProtocolsTransports",
+    "p",
+]
