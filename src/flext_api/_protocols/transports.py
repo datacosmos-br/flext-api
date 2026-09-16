@@ -11,7 +11,6 @@ SPDX-License-Identifier: MIT
 
 from __future__ import annotations
 
-from abc import ABCMeta
 from typing import TYPE_CHECKING, override
 
 import httpx
@@ -29,31 +28,6 @@ if TYPE_CHECKING:
 
 class FlextApiProtocolsTransports:
     """FLEXT API transport implementations."""
-
-    class HttpxMeta(ABCMeta):
-        """Metaclass providing httpx type resolution as class attributes."""
-
-        def __getattribute__(cls, name: str) -> object:
-            if name == "Client":
-                return httpx.Client
-            if name == "AsyncClient":
-                return httpx.AsyncClient
-            if name == "Response":
-                return httpx.Response
-            if name == "HTTPError":
-                return httpx.HTTPError
-            if name == "HTTPStatusError":
-                return httpx.HTTPStatusError
-            if name == "RequestError":
-                return httpx.RequestError
-            if name == "TimeoutException":
-                return httpx.TimeoutException
-            if name == "CONFLICT":
-                return int(httpx.codes.CONFLICT)
-            return ABCMeta.__getattribute__(cls, name)
-
-    class Httpx(metaclass=HttpxMeta):
-        """Owner facade for the httpx transport primitives."""
 
     # Why: no member here carries @abstractmethod (TransportPlugin's Protocol
     # bodies are structural, not abstract), so an explicit ABC base added

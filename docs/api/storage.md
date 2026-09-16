@@ -47,7 +47,7 @@ class FakeFileUploadApi(FileUploadApi):
         )
 
 
-api = FakeFileUploadApi(settings=FlextApiSettings(base_url="https://example.com"))
+api = FakeFileUploadApi(runtime_settings=FlextApiSettings(base_url="https://example.com"))
 result = api.upload_document("report.txt", b"Hello, FLEXT!")
 assert result.success
 body = result.unwrap().body

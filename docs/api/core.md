@@ -40,7 +40,7 @@ settings = FlextApiSettings(
     default_headers={"User-Agent": "flext-api"},
 )
 
-client = FlextApiClient(settings=settings)
+client = FlextApiClient(runtime_settings=settings)
 
 # The client exposes configured values as properties.
 print(client.base_url)  # https://api.example.com
@@ -86,7 +86,7 @@ from __future__ import annotations
 
 from flext_api import FlextApi, FlextApiSettings, m, p
 
-api = FlextApi(settings=FlextApiSettings(base_url="https://api.example.com"))
+api = FlextApi(runtime_settings=FlextApiSettings(base_url="https://api.example.com"))
 
 result: p.Result[m.Api.HttpResponse] = api.get(
     "/users",
@@ -111,7 +111,7 @@ from __future__ import annotations
 
 from flext_api import FlextApi, FlextApiSettings, m, p
 
-api = FlextApi(settings=FlextApiSettings(base_url="https://api.example.com"))
+api = FlextApi(runtime_settings=FlextApiSettings(base_url="https://api.example.com"))
 
 result: p.Result[m.Api.HttpResponse] = api.get("/users")
 
@@ -125,7 +125,7 @@ from __future__ import annotations
 
 from flext_api import FlextApi, FlextApiSettings, m, p
 
-api = FlextApi(settings=FlextApiSettings(base_url="https://api.example.com"))
+api = FlextApi(runtime_settings=FlextApiSettings(base_url="https://api.example.com"))
 
 post_result: p.Result[m.Api.HttpResponse] = api.post(
     "/users", data={"name": "Alice", "email": "alice@example.com"}
@@ -264,7 +264,7 @@ class UserApiClient:
     """Thin wrapper over the FlextApi facade for a user-management API."""
 
     def __init__(self, base_url: str = "https://api.example.com"):
-        self.api = FlextApi(settings=FlextApiSettings(base_url=base_url, timeout=10.0))
+        self.api = FlextApi(runtime_settings=FlextApiSettings(base_url=base_url, timeout=10.0))
 
     def list_users(self, limit: int = 10) -> p.Result[m.Api.HttpResponse]:
         return self.api.get("/users", request_kwargs={"params": {"_limit": limit}})
