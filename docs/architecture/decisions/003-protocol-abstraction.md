@@ -111,7 +111,7 @@ class FakeHttpApi(HttpOnlyApi):
         return r[m.Api.HttpResponse].ok(m.Api.create_response(status_code=404, body={}))
 
 
-api = FakeHttpApi(settings=FlextApiSettings(base_url="https://example.com"))
+api = FakeHttpApi(runtime_settings=FlextApiSettings(base_url="https://example.com"))
 result = api.health_check()
 assert result.success
 assert result.unwrap().body["status"] == "healthy"```

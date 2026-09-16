@@ -55,7 +55,7 @@ class FakeLoggingApi(LoggingApi):
         )
 
 
-api = FakeLoggingApi(settings=FlextApiSettings(base_url="https://example.com"))
+api = FakeLoggingApi(runtime_settings=FlextApiSettings(base_url="https://example.com"))
 result = api.get("/users")
 assert result.success
 assert result.unwrap().status_code == 200```
