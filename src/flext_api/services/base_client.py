@@ -4,16 +4,11 @@ from __future__ import annotations
 
 from typing import override
 
-from .. import FlextApiSettings, p, r, s, t, u
+from .. import p, r, s, t, u
 
 
 class FlextApiClientBase(s[bool]):
     """Base HTTP client using FLEXT patterns."""
-
-    def __init__(self, settings: FlextApiSettings | None = None) -> None:
-        """Bind the client to explicit settings or the global singleton."""
-        resolved = settings if settings is not None else FlextApiSettings.fetch_global()
-        s.__init__(self, runtime_settings=resolved)
 
     @property
     def base_url(self) -> str:

@@ -70,7 +70,7 @@ class FakeApi(FlextApi):
 
 
 settings = FlextApiSettings(base_url="https://api.example.com", timeout=5.0)
-api = FakeApi(settings=settings)
+api = FakeApi(runtime_settings=settings)
 
 
 def test_get_users_returns_success() -> None:
@@ -170,7 +170,7 @@ class WorkflowApi(FlextApi):
 
 
 settings = FlextApiSettings(base_url="https://api.example.com", timeout=5.0)
-api = WorkflowApi(settings=settings)
+api = WorkflowApi(runtime_settings=settings)
 
 
 def test_create_and_list_orders() -> None:
@@ -219,12 +219,12 @@ def make_settings(
 
 
 def make_api(settings: FlextApiSettings | None = None) -> FlextApi:
-    return FlextApi(settings=settings if settings is not None else make_settings())
+    return FlextApi(runtime_settings=settings if settings is not None else make_settings())
 
 
 def make_client(settings: FlextApiSettings | None = None) -> FlextApiClient:
     return FlextApiClient(
-        settings=settings if settings is not None else make_settings()
+        runtime_settings=settings if settings is not None else make_settings()
     )
 
 
@@ -261,7 +261,7 @@ class FakeApi(FlextApi):
 
 
 settings = FlextApiSettings(base_url="https://api.example.com", timeout=5.0)
-api = FakeApi(settings=settings)
+api = FakeApi(runtime_settings=settings)
 
 
 def test_with_fake_api() -> None:
