@@ -42,7 +42,9 @@ class TestsFlextApiResponseWireContent:
         """A real local exchange exposes both raw bytes and parsed JSON."""
         payload = b'{"answer":"ok"}'
         with self._server(payload) as base_url:
-            client = FlextApiClient(runtime_settings=FlextApiSettings(base_url=base_url))
+            client = FlextApiClient(
+                runtime_settings=FlextApiSettings(base_url=base_url)
+            )
             result = client.request(m.Api.HttpRequest(url=base_url, method="GET"))
 
         tm.that(result.success, eq=True)
