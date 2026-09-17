@@ -9,19 +9,15 @@ from __future__ import annotations
 from flext_api import t
 
 
-class _RequestTypes:
-    """Request-specific test type aliases."""
-
-
-class _ResponseTypes:
-    """Response-specific test type aliases."""
-
-
 class TestsFlextApiTypes(t):
     """Test type aliases for flext-api — extends flext_api.t."""
+    
+    class _RequestTypes:
+        """Request-specific test type aliases."""
+    
+    class _ResponseTypes:
+        """Response-specific test type aliases."""
 
-    class TestsFlextApi(_RequestTypes, _ResponseTypes):
+    class TestsFlextApi(TestsFlextApiTypes._RequestTypes, TestsFlextApiTypes._ResponseTypes):
         """Test-specific type aliases."""
-
-
 __all__: list[str] = ["TestsFlextApiTypes"]
