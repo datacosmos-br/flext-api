@@ -1,6 +1,7 @@
 # 002. Railway-Oriented Error Handling
 
 <!-- TOC START -->
+
 - [Status](#status)
 - [Context](#context)
 - [Decision](#decision)
@@ -54,7 +55,7 @@ FLEXT-API uses **Railway-Oriented Programming** with `r[T]` for all HTTP operati
 
 ### Option 1: Traditional Exceptions
 
-```python
+````python
 from __future__ import annotations
 
 import httpx
@@ -230,3 +231,4 @@ r[str].fail("JSON parsing failed: invalid response format")```
 
 - [Railway-Oriented Programming](https://fsharpforfunandprofit.com/rop/)
 - GitHub Issue: #156 - Railway Pattern Implementation
+````

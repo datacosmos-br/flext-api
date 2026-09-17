@@ -7,6 +7,7 @@
 Full notes: `docs/releases/v0.12.0.md`
 
 <!-- TOC START -->
+
 - No sections found
 <!-- TOC END -->
 

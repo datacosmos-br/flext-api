@@ -1,6 +1,7 @@
 # Architecture Overview
 
 <!-- TOC START -->
+
 - [Overview](#overview)
 - [Layer Details](#layer-details)
   - [Foundation Layer (Core Primitives)](#foundation-layer-core-primitives)
@@ -94,7 +95,7 @@ FLEXT-API follows a **Protocol-Based Clean Architecture** with clear separation 
 
 **Domain Patterns:**
 
-```python
+````python
 from __future__ import annotations```
 **Key Components:**
 
@@ -342,3 +343,4 @@ def create_fastapi_app(settings: FlextApiSettings = None) -> FastAPI:
 ______________________________________________________________________
 
 **FLEXT-API Architecture** - Protocol-based, extensible HTTP foundation for enterprise applications.
+````

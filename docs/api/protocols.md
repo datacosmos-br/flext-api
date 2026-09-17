@@ -1,6 +1,7 @@
 # Protocols API Reference
 
 <!-- TOC START -->
+
 - [Protocol Architecture](#protocol-architecture)
 - [HTTP Protocol Implementation](#http-protocol-implementation)
   - [FlextApiClient Implementation](#flextapiclient-implementation)
@@ -20,7 +21,7 @@
 - [Usage Examples](#usage-examples)
   - [HTTP API Client](#http-api-client)
   - [Protocol Plugin System](#protocol-plugin-system)
-<!-- TOC END -->
+  <!-- TOC END -->
 
 This section covers the protocol implementations and stubs that enable FLEXT-API to support multiple communication protocols through a plugin architecture.
 
@@ -44,7 +45,7 @@ Protocol Layer
 
 Primary protocol implementation for REST APIs and HTTP-based communication.
 
-```python
+````python
 from __future__ import annotations
 
 from flext_api import FlextApi, FlextApiClient, FlextApiSettings, c, m, p, r
@@ -335,3 +336,4 @@ if resolved.success:
 shutdown_result = manager.shutdown_all()
 assert shutdown_result.success```
 This protocol-based architecture provides a flexible foundation for supporting multiple communication patterns while maintaining consistent error handling and type safety across all protocols. The public HTTP surface and plugin manager are available today; additional protocols can be added through the plugin system.
+````

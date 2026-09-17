@@ -1,6 +1,7 @@
 # 003. Protocol Plugin Architecture
 
 <!-- TOC START -->
+
 - [Status](#status)
 - [Context](#context)
 - [Decision](#decision)
@@ -50,7 +51,7 @@ shards, which provide a railway result-oriented lifecycle contract.
 
 ### Protocol Plugin Manager
 
-```python
+````python
 from __future__ import annotations
 
 from flext_api import FlextApiProtocolPluginManager, FlextApiProtocolPluginTypes, p, r
@@ -131,3 +132,4 @@ updated with real, runnable examples.
 ## References
 
 - GitHub Issue: #159 - Protocol Plugin Architecture
+````

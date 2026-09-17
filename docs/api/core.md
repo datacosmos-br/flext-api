@@ -1,6 +1,7 @@
 # Core API Reference
 
 <!-- TOC START -->
+
 - [Core HTTP Client](#core-http-client)
   - [FlextApiClient - Main HTTP Client](#flextapiclient-main-http-client)
   - [FlextApi - Unified Facade](#flextapi-unified-facade)
@@ -13,7 +14,7 @@
   - [RequestUtils - Helper Functions](#requestutils-helper-functions)
 - [Usage Examples](#usage-examples)
   - [Complete HTTP Client Example](#complete-http-client-example)
-<!-- TOC END -->
+  <!-- TOC END -->
 
 This section covers the core HTTP client and configuration types that form the
 public surface of `flext-api`.
@@ -27,7 +28,7 @@ executes validated `m.Api.HttpRequest` instances through `request(...)`. It does
 not expose `get/post/put/delete/patch` directly; those methods live on the
 `FlextApi` facade.
 
-```python
+````python
 from __future__ import annotations
 
 from flext_api import FlextApiClient, FlextApiSettings, c, m, p
@@ -356,3 +357,4 @@ if delete_result.success:
 This core API provides the public HTTP surface for `flext-api`: typed settings, a
 validated request model, a monadic response model, and the `FlextApi` facade for
 convenient HTTP verbs.
+````

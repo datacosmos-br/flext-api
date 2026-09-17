@@ -1,6 +1,7 @@
 # Architecture Documentation
 
 <!-- TOC START -->
+
 - [📚 Documentation Structure](#documentation-structure)
 - [🏗️ Architecture Framework](#architecture-framework)
   - [Architectural Principles](#architectural-principles)
@@ -114,8 +115,8 @@ Architecture diagrams using PlantUML:
 
 ### Core Decisions
 
-| Decision                                                                 | Status     | Impact                          |
-| ------------------------------------------------------------------------ | ---------- | ------------------------------- |
+| Decision                                                                 | Status      | Impact                          |
+| ------------------------------------------------------------------------ | ----------- | ------------------------------- |
 | [ADR-001: FLEXT-Core Dependency](decisions/001-flext-core-dependency.md) | ✅ Accepted | Mandatory ecosystem integration |
 | [ADR-002: Railway Pattern](decisions/002-railway-pattern.md)             | ✅ Accepted | Type-safe error handling        |
 | [ADR-003: Protocol Abstraction](decisions/003-protocol-abstraction.md)   | ✅ Accepted | Multi-protocol support          |
@@ -289,7 +290,7 @@ The architecture supports extension in several areas:
 - [AsyncAPI](https://www.asyncapi.com/) - Event-driven API specification
 - [RFC 2119](https://tools.ietf.org/html/rfc2119) - Key words for requirements
 
-______________________________________________________________________
+---
 
 ## 🎯 Architecture Vision
 
@@ -302,6 +303,6 @@ FLEXT-API aims to be the **enterprise HTTP foundation** that enables reliable, s
 - **Development Speed**: 50% faster API integration development
 - **Maintenance Cost**: 60% reduction in HTTP operation maintenance
 
-______________________________________________________________________
+---
 
 _This architecture documentation is maintained using automated tools and reviewed regularly to ensure accuracy and completeness._

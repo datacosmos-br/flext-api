@@ -1,6 +1,7 @@
 # Schemas API Reference
 
 <!-- TOC START -->
+
 - [Public HTTP Models](#public-http-models)
 - [What Is Not Implemented](#what-is-not-implemented)
 <!-- TOC END -->
@@ -14,7 +15,7 @@ This page documents the schema/model story for `flext-api`.
 
 ## Public HTTP Models
 
-```python
+````python
 from __future__ import annotations
 
 from flext_api import c, m
@@ -49,3 +50,4 @@ are therefore not documented as executable examples:
 
 If a future release adds schema generation helpers, this page will be updated
 with real, runnable examples.
+````

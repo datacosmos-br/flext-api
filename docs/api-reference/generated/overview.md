@@ -1,6 +1,7 @@
 # flext-api API Overview
 
 <!-- TOC START -->
+
 - [Next Pages](#next-pages)
 <!-- TOC END -->
 
@@ -13,7 +14,7 @@
 - Classifiers: `Development Status :: 3 - Alpha`, `Framework :: FastAPI`,
   `Intended Audience :: Developers`, `Operating System :: OS Independent`,
   `Programming Language :: Python :: 3 :: Only`, `Programming Language :: Python
-  :: 3.13` (+3 more)
+:: 3.13` (+3 more)
 - Project class: `domain`
 - Keywords: `enterprise`, `fastapi`, `flext`, `http`, `rest`, `typed`
 - Main facades: `FlextApi`, `FlextApiAsyncClient`, `FlextApiCli`,

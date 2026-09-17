@@ -1,6 +1,7 @@
 # [Number]. [Title]
 
 <!-- TOC START -->
+
 - [Status](#status)
 - [Context](#context)
 - [Decision](#decision)
@@ -100,7 +101,7 @@ Date: [YYYY-MM-DD]
 - [Reference to research or article]
 - [Related ADR: ADR-XXXX]
 
-______________________________________________________________________
+---
 
 **Decision Maker**: [Name/Team]
 **Reviewers**: [List of reviewers]
