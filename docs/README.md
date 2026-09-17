@@ -134,7 +134,7 @@ from __future__ import annotations
 from flext_api import FlextApi, FlextApiSettings
 
 settings = FlextApiSettings(base_url="https://api.example.com", timeout=30)
-api = FlextApi(settings=settings)
+api = FlextApi(runtime_settings=settings)
 
 result = api.get("/users")
 if result.success:

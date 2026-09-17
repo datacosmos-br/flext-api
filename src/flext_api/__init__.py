@@ -30,17 +30,7 @@ if TYPE_CHECKING:
     from .cli import FlextApiCli
     from .constants import FlextApiConstants, FlextApiConstants as c
     from .models import FlextApiModels, FlextApiModels as m
-    from .protocols import (
-        FlextApiProtocols,
-        FlextApiProtocols as p,
-        HttpxAsyncClient,
-        HttpxClient,
-        HttpxHTTPError,
-        HttpxHTTPStatusError,
-        HttpxRequestError,
-        HttpxResponse,
-        HttpxTimeoutException,
-    )
+    from .protocols import FlextApiProtocols, FlextApiProtocols as p
     from .services.async_client import FlextApiAsyncClient
     from .services.base_client import FlextApiClientBase
     from .services.client import FlextApiClient
@@ -60,13 +50,6 @@ __all__: tuple[str, ...] = (
     "FlextApiSettings",
     "FlextApiTypes",
     "FlextApiUtilities",
-    "HttpxAsyncClient",
-    "HttpxClient",
-    "HttpxHTTPError",
-    "HttpxHTTPStatusError",
-    "HttpxRequestError",
-    "HttpxResponse",
-    "HttpxTimeoutException",
     "__author__",
     "__author_email__",
     "__description__",
@@ -102,17 +85,7 @@ _LAZY_IMPORTS = MappingProxyType(
             ".cli": ("FlextApiCli",),
             ".constants": ("FlextApiConstants", "c"),
             ".models": ("FlextApiModels", "m"),
-            ".protocols": (
-                "FlextApiProtocols",
-                "HttpxAsyncClient",
-                "HttpxClient",
-                "HttpxHTTPError",
-                "HttpxHTTPStatusError",
-                "HttpxRequestError",
-                "HttpxResponse",
-                "HttpxTimeoutException",
-                "p",
-            ),
+            ".protocols": ("FlextApiProtocols", "p"),
             ".services": ("services",),
             ".services.async_client": ("FlextApiAsyncClient",),
             ".services.base_client": ("FlextApiClientBase",),

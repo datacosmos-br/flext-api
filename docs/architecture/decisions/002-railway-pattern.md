@@ -129,7 +129,7 @@ class FakeUserApi(UserApi):
         )
 
 
-api = FakeUserApi(settings=FlextApiSettings(base_url="https://example.com"))
+api = FakeUserApi(runtime_settings=FlextApiSettings(base_url="https://example.com"))
 result = api.fetch_user(123)
 assert result.success
 assert result.unwrap().body["name"] == "Alice"```
@@ -154,7 +154,7 @@ class FakeProfileApi(FlextApi):
         )
 
 
-api = FakeProfileApi(settings=FlextApiSettings(base_url="https://example.com"))
+api = FakeProfileApi(runtime_settings=FlextApiSettings(base_url="https://example.com"))
 result = api.get("/users/123/profile")
 
 if result.success:
@@ -186,14 +186,14 @@ class FakeUserApi(FlextApi):
 
 
 def test_get_user_success():
-    api = FakeUserApi(settings=FlextApiSettings(base_url="https://example.com"))
+    api = FakeUserApi(runtime_settings=FlextApiSettings(base_url="https://example.com"))
     result = api.get("/users/123")
     assert result.success
     assert result.unwrap().body["name"] == "John"
 
 
 def test_get_user_not_found():
-    api = FakeUserApi(settings=FlextApiSettings(base_url="https://example.com"))
+    api = FakeUserApi(runtime_settings=FlextApiSettings(base_url="https://example.com"))
     result = api.get("/users/999")
     assert result.failure
     assert "404" in result.error
