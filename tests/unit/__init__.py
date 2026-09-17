@@ -13,12 +13,14 @@ if TYPE_CHECKING:
 
     from ._model_contract import TestsFlextApiModelContract
     from .test_async_client import TestsFlextApiAsyncClientSmoke
+    from .test_response_wire_content import TestsFlextApiResponseWireContent
     from .test_serializers import TestsFlextApiSerializers
     from .test_smoke import TestsFlextApiSmoke
     from .test_utilities_transport import TestsFlextApiUtilitiesTransport
 __all__: tuple[str, ...] = (
     "TestsFlextApiAsyncClientSmoke",
     "TestsFlextApiModelContract",
+    "TestsFlextApiResponseWireContent",
     "TestsFlextApiSerializers",
     "TestsFlextApiSmoke",
     "TestsFlextApiUtilitiesTransport",
@@ -45,6 +47,7 @@ _LAZY_IMPORTS = MappingProxyType(
         MappingProxyType({
             "._model_contract": ("TestsFlextApiModelContract",),
             ".test_async_client": ("TestsFlextApiAsyncClientSmoke",),
+            ".test_response_wire_content": ("TestsFlextApiResponseWireContent",),
             ".test_serializers": ("TestsFlextApiSerializers",),
             ".test_smoke": ("TestsFlextApiSmoke",),
             ".test_utilities_transport": ("TestsFlextApiUtilitiesTransport",),
