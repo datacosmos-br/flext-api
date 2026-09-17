@@ -195,7 +195,8 @@ Use the root `make` commands as the canonical test runner.
 make test PROJECT=flext-api
 
 # Run the markdown examples
-uv run pytest --markdown-docs docs/testing.md guides/http-client.md guides/testing.md -q```
+make test
+```
 ## Test Data and Helpers
 
 Keep tests clean by extracting reusable helper functions. These can be used in standalone scripts or in pytest-collected test files.

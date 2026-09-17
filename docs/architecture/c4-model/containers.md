@@ -224,8 +224,7 @@ RUN apt-get update && apt-get install -y \
 
 # Install Python dependencies
 COPY pyproject.toml poetry.lock ./
-RUN pip install poetry && poetry settings virtualenvs.create false
-RUN uv sync --only=main --no-dev
+RUN make setup
 
 # Copy application code
 COPY src/ ./src/

@@ -122,8 +122,8 @@ ______________________________________________________________________
 # From the FLEXT workspace (recommended for development)
 make setup
 
-# Install flext-api specifically
-uv sync --package flext-api
+# Provision the declared workspace environment
+make setup
 ```
 
 ### Basic HTTP Client Usage
@@ -174,12 +174,11 @@ ______________________________________________________________________
 make test PROJECT=flext-api
 
 # Run markdown documentation examples
-uv run pytest --markdown-docs -q
+make test
 
 # Run specific test categories
-uv run pytest tests/unit/        # Unit tests
-uv run pytest tests/integration/ # Integration tests
-uv run pytest tests/e2e/          # End-to-end tests```
+make test              # All tests
+```
 ______________________________________________________________________
 
 ## Current Status
@@ -198,7 +197,7 @@ ______________________________________________________________________
 - **Error Handling**: Railway-oriented error management on every HTTP path
 - **Configuration**: Environment-aware settings with validation
 - **Documentation**: User-facing guides and API reference updated to the real API
-- **Testing**: Markdown examples run under `uv run pytest --markdown-docs`
+- **Testing**: Markdown examples run under `make test`
 
 ______________________________________________________________________
 
