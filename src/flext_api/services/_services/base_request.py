@@ -78,6 +78,7 @@ class FlextApiClientBaseRequestMixin(FlextApiClientCodecMixin):
                     status_code=response.status_code,
                     headers=dict(response.headers),
                     body=body,
+                    content=response.content,
                     request_id="",
                 ),
                 catch=(c.ValidationError, ValueError, TypeError),
