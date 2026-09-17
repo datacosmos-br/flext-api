@@ -13,6 +13,7 @@
   - [HTTP Protocol Facade](#http-protocol-facade)
 - [What Is Not Implemented](#what-is-not-implemented)
 - [References](#references)
+
 <!-- TOC END -->
 
 Date: 2025-01-01

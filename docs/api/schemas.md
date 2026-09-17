@@ -4,6 +4,7 @@
 
 - [Public HTTP Models](#public-http-models)
 - [What Is Not Implemented](#what-is-not-implemented)
+
 <!-- TOC END -->
 
 This page documents the schema/model story for `flext-api`.

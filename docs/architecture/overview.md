@@ -27,6 +27,7 @@
 - [Migration Guidelines](#migration-guidelines)
   - [Version Compatibility](#version-compatibility)
 - [References](#references)
+
 <!-- TOC END -->
 
 Comprehensive architecture guide for FLEXT-API - the HTTP client and FastAPI integration foundation for the FLEXT enterprise data integration platform.

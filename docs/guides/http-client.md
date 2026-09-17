@@ -6,6 +6,7 @@
 - [Client Usage](#client-usage)
 - [Request Body](#request-body)
 - [Error Handling](#error-handling)
+
 <!-- TOC END -->
 
 FLEXT-API exposes two HTTP entry points:

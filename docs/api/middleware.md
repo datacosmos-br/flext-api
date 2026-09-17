@@ -4,6 +4,7 @@
 
 - [Wrapping the Public Facade](#wrapping-the-public-facade)
 - [What Is Not Implemented](#what-is-not-implemented)
+
 <!-- TOC END -->
 
 This page documents the current middleware story for `flext-api`.

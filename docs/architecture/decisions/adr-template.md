@@ -19,6 +19,7 @@
 - [Monitoring and Metrics](#monitoring-and-metrics)
 - [Rollback Plan](#rollback-plan)
 - [References](#references)
+
 <!-- TOC END -->
 
 Date: [YYYY-MM-DD]
