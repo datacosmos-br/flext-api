@@ -222,13 +222,9 @@ RUN apt-get update && apt-get install -y \
     gcc \
     && rm -rf /var/lib/apt/lists/*
 
-# Install Python dependencies
-COPY pyproject.toml uv.lock ./
+# Copy the project-owned Make/config sources, then provision through Make
+COPY . .
 RUN make setup
-
-# Copy application code
-COPY src/ ./src/
-COPY scripts/ ./scripts/
 
 # Create non-root user
 RUN useradd --create-home --shell /bin/bash app
