@@ -120,7 +120,7 @@ ______________________________________________________________________
 
 ```bash
 # From the FLEXT workspace (recommended for development)
-make boot
+make setup
 
 # Install flext-api specifically
 uv sync --package flext-api
