@@ -16,17 +16,17 @@
   - [Complete HTTP Client Example](#complete-http-client-example)
   <!-- TOC END -->
 
-This section covers the core HTTP client and configuration types that form the
-public surface of `flext-api`.
+This section covers the core HTTP client and configuration types that form the public
+surface of `flext-api`.
 
 ## Core HTTP Client
 
 ### FlextApiClient - Main HTTP Client
 
 `FlextApiClient` is the low-level HTTP client. It is bound to typed settings and
-executes validated `m.Api.HttpRequest` instances through `request(...)`. It does
-not expose `get/post/put/delete/patch` directly; those methods live on the
-`FlextApi` facade.
+executes validated `m.Api.HttpRequest` instances through `request(...)`. It does not
+expose `get/post/put/delete/patch` directly; those methods live on the `FlextApi`
+facade.
 
 ````python
 from __future__ import annotations

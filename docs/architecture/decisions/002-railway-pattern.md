@@ -32,19 +32,27 @@ Accepted
 
 ## Context
 
-HTTP operations are inherently unreliable: network failures, server errors, timeouts, and malformed responses are common. Traditional exception-based error handling makes code complex and error-prone. The FLEXT ecosystem needed a consistent approach to error handling that makes errors explicit, composable, and testable.
+HTTP operations are inherently unreliable: network failures, server errors, timeouts,
+and malformed responses are common. Traditional exception-based error handling makes
+code complex and error-prone. The FLEXT ecosystem needed a consistent approach to error
+handling that makes errors explicit, composable, and testable.
 
 ## Decision
 
-FLEXT-API uses **Railway-Oriented Programming** with `r[T]` for all HTTP operations. Every public method returns `p.Result[T]`. Operations are composed using `flat_map`, `map`, and `map_error` methods.
+FLEXT-API uses **Railway-Oriented Programming** with `r[T]` for all HTTP operations.
+Every public method returns `p.Result[T]`. Operations are composed using `flat_map`,
+`map`, and `map_error` methods.
 
 ## Consequences
 
 ### Positive
 
-- **Explicit Error Handling**: Errors are visible in type signatures and cannot be ignored
-- **Composable Operations**: HTTP operations can be chained without nested try/catch blocks
-- **Testable Code**: Railway pattern makes testing success and failure paths straightforward
+- **Explicit Error Handling**: Errors are visible in type signatures and cannot be
+  ignored
+- **Composable Operations**: HTTP operations can be chained without nested try/catch
+  blocks
+- **Testable Code**: Railway pattern makes testing success and failure paths
+  straightforward
 - **Type Safety**: Type signatures catch unhandled error cases
 
 ### Negative

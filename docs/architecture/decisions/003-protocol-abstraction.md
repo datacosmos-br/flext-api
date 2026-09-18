@@ -24,16 +24,16 @@ Accepted
 
 ## Context
 
-Enterprise applications consume diverse APIs, but `flext-api` currently focuses
-on HTTP/REST. The architecture keeps the HTTP surface clean while leaving room
-for future protocol support through a plugin-style boundary.
+Enterprise applications consume diverse APIs, but `flext-api` currently focuses on
+HTTP/REST. The architecture keeps the HTTP surface clean while leaving room for future
+protocol support through a plugin-style boundary.
 
 ## Decision
 
-`flext-api` exposes a single HTTP-focused facade (`FlextApi`) and a typed
-protocol layer (`p.Api`) for HTTP operations. Protocol plugins are managed by
-the exported `FlextApiProtocolPluginManager` and `FlextApiProtocolPluginTypes`
-shards, which provide a railway result-oriented lifecycle contract.
+`flext-api` exposes a single HTTP-focused facade (`FlextApi`) and a typed protocol layer
+(`p.Api`) for HTTP operations. Protocol plugins are managed by the exported
+`FlextApiProtocolPluginManager` and `FlextApiProtocolPluginTypes` shards, which provide
+a railway result-oriented lifecycle contract.
 
 ## Consequences
 

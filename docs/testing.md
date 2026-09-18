@@ -16,15 +16,19 @@
 
 ## Overview
 
-This document describes the current testing strategy for `flext_api`. The public API surface is intentionally small and testable:
+This document describes the current testing strategy for `flext_api`. The public API
+surface is intentionally small and testable:
 
 - `FlextApiSettings` for configuration.
 - `FlextApiClient` for the low-level HTTP client.
-- `FlextApi` for the high-level HTTP facade (`get`, `post`, `put`, `patch`, `delete`, `request`).
+- `FlextApi` for the high-level HTTP facade (`get`, `post`, `put`, `patch`, `delete`,
+  `request`).
 - `m.Api.HttpRequest` and `m.Api.HttpResponse` for typed request/response values.
 - `p.Result` and `r.ok` / `r.fail` for railway-style error handling.
 
-Tests should validate the real contract: every `FlextApi` method returns `p.Result[m.Api.HttpResponse]`, successes are inspected via `result.unwrap()`, and failures are inspected via `result.error`.
+Tests should validate the real contract: every `FlextApi` method returns
+`p.Result[m.Api.HttpResponse]`, successes are inspected via `result.unwrap()`, and
+failures are inspected via `result.error`.
 
 ## Test Structure
 
@@ -36,11 +40,13 @@ tests/
 └── conftest.py     # Shared pytest fixtures and configuration
 ```
 
-The examples below use plain functions and deterministic `FakeApi` subclasses. They run as standalone scripts and can also be collected by pytest.
+The examples below use plain functions and deterministic `FakeApi` subclasses. They run
+as standalone scripts and can also be collected by pytest.
 
 ## Unit Tests
 
-Unit tests exercise one behavior at a time. A `FakeApi` subclass replaces the real HTTP backend so the tests run without network access.
+Unit tests exercise one behavior at a time. A `FakeApi` subclass replaces the real HTTP
+backend so the tests run without network access.
 
 ````python
 from __future__ import annotations

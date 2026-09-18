@@ -29,7 +29,9 @@
 
 ## Overview
 
-This document describes the **Container** level of the C4 model for FLEXT-API, showing the high-level technology choices and how responsibilities are distributed across containers.
+This document describes the **Container** level of the C4 model for FLEXT-API, showing
+the high-level technology choices and how responsibilities are distributed across
+containers.
 
 ## Container Diagram
 
@@ -100,8 +102,7 @@ Rel(fastapi_app, config_layer, "Reads configuration", "settings loading")
 
 ### HTTP Client Container
 
-**Technology**: Python with HTTPX and FastAPI
-**Responsibilities**:
+**Technology**: Python with HTTPX and FastAPI **Responsibilities**:
 
 - Enterprise-grade HTTP client operations
 - Connection pooling and lifecycle management
@@ -119,8 +120,7 @@ Rel(fastapi_app, config_layer, "Reads configuration", "settings loading")
 
 ### FastAPI Application Container
 
-**Technology**: Python with FastAPI framework
-**Responsibilities**:
+**Technology**: Python with FastAPI framework **Responsibilities**:
 
 - Web API server with automatic OpenAPI generation
 - Request routing and middleware processing
@@ -137,8 +137,7 @@ Rel(fastapi_app, config_layer, "Reads configuration", "settings loading")
 
 ### Protocol Layer Container
 
-**Technology**: Python with protocol abstractions
-**Responsibilities**:
+**Technology**: Python with protocol abstractions **Responsibilities**:
 
 - Multi-protocol support (HTTP, GraphQL, WebSocket, SSE)
 - Protocol-specific client implementations
@@ -154,8 +153,7 @@ Rel(fastapi_app, config_layer, "Reads configuration", "settings loading")
 
 ### Storage Layer Container
 
-**Technology**: Python with multi-backend support
-**Responsibilities**:
+**Technology**: Python with multi-backend support **Responsibilities**:
 
 - Multi-cloud storage abstraction (S3, GCS, Azure)
 - Local filesystem operations
@@ -172,8 +170,7 @@ Rel(fastapi_app, config_layer, "Reads configuration", "settings loading")
 
 ### Configuration Layer Container
 
-**Technology**: Python with Pydantic validation
-**Responsibilities**:
+**Technology**: Python with Pydantic validation **Responsibilities**:
 
 - Environment-aware configuration loading
 - Configuration validation and type safety
@@ -220,8 +217,8 @@ FROM python:3.13-slim
 
 # Install system dependencies
 RUN apt-get update && apt-get install -y \
-    gcc \
-    && rm -rf /var/lib/apt/lists/*
+  gcc \
+  && rm -rf /var/lib/apt/lists/*
 
 # Install Python dependencies
 COPY pyproject.toml poetry.lock ./
@@ -238,7 +235,7 @@ USER app
 
 # Health check
 HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
-    CMD python -c "from flext_api import FlextApiClient; u.Cli.print('OK')"
+  CMD python -c "from flext_api import FlextApiClient; u.Cli.print('OK')"
 
 # Start application
 CMD ["python", "-m", "flext_api.app"]

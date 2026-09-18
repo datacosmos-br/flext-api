@@ -30,11 +30,13 @@
 
 <!-- TOC END -->
 
-Comprehensive architecture guide for FLEXT-API - the HTTP client and FastAPI integration foundation for the FLEXT enterprise data integration platform.
+Comprehensive architecture guide for FLEXT-API - the HTTP client and FastAPI integration
+foundation for the FLEXT enterprise data integration platform.
 
 ## Overview
 
-FLEXT-API follows a **Protocol-Based Clean Architecture** with clear separation of concerns across multiple layers, designed for extensibility and maintainability.
+FLEXT-API follows a **Protocol-Based Clean Architecture** with clear separation of
+concerns across multiple layers, designed for extensibility and maintainability.
 
 ```
 ┌─────────────────────────────────────────────────────────────┐

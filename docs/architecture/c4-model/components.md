@@ -23,7 +23,8 @@
 
 ## Overview
 
-This document describes the **Component** level of the C4 model for FLEXT-API, showing the key components within each container and their relationships.
+This document describes the **Component** level of the C4 model for FLEXT-API, showing
+the key components within each container and their relationships.
 
 ## Component Diagram
 

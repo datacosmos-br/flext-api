@@ -10,9 +10,9 @@
 This page documents the schema/model story for `flext-api`.
 
 > **Current status:** `flext-api` does not expose OpenAPI/JSON Schema generation
-> utilities or request/response schema builders beyond the public Pydantic models
-> under `m.Api`. Applications should use `m.Api.HttpRequest` and
-> `m.Api.HttpResponse` as the canonical HTTP schema types.
+> utilities or request/response schema builders beyond the public Pydantic models under
+> `m.Api`. Applications should use `m.Api.HttpRequest` and `m.Api.HttpResponse` as the
+> canonical HTTP schema types.
 
 ## Public HTTP Models
 

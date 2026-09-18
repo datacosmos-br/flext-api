@@ -23,11 +23,15 @@
   - [Protocol Plugin System](#protocol-plugin-system)
   <!-- TOC END -->
 
-This section covers the protocol implementations and stubs that enable FLEXT-API to support multiple communication protocols through a plugin architecture.
+This section covers the protocol implementations and stubs that enable FLEXT-API to
+support multiple communication protocols through a plugin architecture.
 
 ## Protocol Architecture
 
-FLEXT-API uses a protocol-based architecture that allows supporting multiple communication protocols (HTTP, GraphQL, WebSocket, etc.) through a unified interface. The currently implemented public HTTP surface is the `FlextApi` facade, `FlextApiClient`, and the protocol plugin manager.
+FLEXT-API uses a protocol-based architecture that allows supporting multiple
+communication protocols (HTTP, GraphQL, WebSocket, etc.) through a unified interface.
+The currently implemented public HTTP surface is the `FlextApi` facade,
+`FlextApiClient`, and the protocol plugin manager.
 
 ```text
 Protocol Layer

@@ -30,23 +30,23 @@
 [![HTTP Foundation](https://img.shields.io/badge/http-foundation-green.svg)](#)
 [![Documentation](https://img.shields.io/badge/docs-organized-blue.svg)](../)
 
-**HTTP client foundation** for the FLEXT enterprise data integration platform.
-FLEXT-API provides a typed HTTP facade (`FlextApi`), a low-level client
-(`FlextApiClient`), Pydantic v2 request/response models, and railway-oriented
-error handling through `p.Result`.
+**HTTP client foundation** for the FLEXT enterprise data integration platform. FLEXT-API
+provides a typed HTTP facade (`FlextApi`), a low-level client (`FlextApiClient`),
+Pydantic v2 request/response models, and railway-oriented error handling through
+`p.Result`.
 
-> **STATUS**: Version 0.12.0-dev — public HTTP facade, settings, and model
-> layer implemented. Additional protocols, middleware, and schema generation are
-> not yet part of the public API.
+> **STATUS**: Version 0.12.0-dev — public HTTP facade, settings, and model layer
+> implemented. Additional protocols, middleware, and schema generation are not yet part
+> of the public API.
 
 ---
 
 ## Overview
 
-FLEXT-API serves as the **HTTP foundation** for FLEXT's enterprise data
-integration platform. It eliminates HTTP implementation duplication while
-maintaining enterprise-grade patterns: typed settings, validated request/response
-models, and `p.Result`/`r` error handling.
+FLEXT-API serves as the **HTTP foundation** for FLEXT's enterprise data integration
+platform. It eliminates HTTP implementation duplication while maintaining
+enterprise-grade patterns: typed settings, validated request/response models, and
+`p.Result`/`r` error handling.
 
 ### Core Features
 
@@ -90,11 +90,13 @@ src/flext_api/
 
 ### Key Architectural Patterns
 
-- **Clean Architecture** — Clear separation between public facades and private implementations
+- **Clean Architecture** — Clear separation between public facades and private
+  implementations
 - **Railway Pattern** — `p.Result` error handling through every HTTP path
 - **MRO Composition** — Facades composed via mixin classes
 - **Plugin Architecture** — Protocol plugin manager ready for future protocols
-- **Configuration SSOT** — `config/*.yaml` and `FlextApiSettings` as the single source of truth
+- **Configuration SSOT** — `config/*.yaml` and `FlextApiSettings` as the single source
+  of truth
 
 ---
 
@@ -108,7 +110,8 @@ src/flext_api/
 ### Development & Integration
 
 - **[Getting Started](guides/getting-started.md)** — Installation and setup guide
-- **[Configuration Guide](guides/configuration.md)** — Configuration patterns and best practices
+- **[Configuration Guide](guides/configuration.md)** — Configuration patterns and best
+  practices
 - **[HTTP Client Guide](guides/http-client.md)** — HTTP client usage and patterns
 - **[Testing Guide](guides/testing.md)** — Testing strategies and examples
 - **[Troubleshooting](guides/troubleshooting.md)** — Common issues and solutions

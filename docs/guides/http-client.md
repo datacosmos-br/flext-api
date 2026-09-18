@@ -11,8 +11,10 @@
 
 FLEXT-API exposes two HTTP entry points:
 
-- `FlextApi` is the public facade for convenience methods such as `get`, `post`, `put`, `patch`, and `delete`.
-- `FlextApiClient` is the lower-level client. It accepts only `runtime_settings=` at construction time and executes a validated `m.Api.HttpRequest` through `request(...)`.
+- `FlextApi` is the public facade for convenience methods such as `get`, `post`, `put`,
+  `patch`, and `delete`.
+- `FlextApiClient` is the lower-level client. It accepts only `runtime_settings=` at
+  construction time and executes a validated `m.Api.HttpRequest` through `request(...)`.
 
 ## Facade Usage
 

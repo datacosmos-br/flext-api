@@ -17,7 +17,8 @@
 
 ## Overview
 
-This document describes the **Code** level of the C4 model for FLEXT-API, showing the actual implementation details, class relationships, and code organization.
+This document describes the **Code** level of the C4 model for FLEXT-API, showing the
+actual implementation details, class relationships, and code organization.
 
 ## Code Diagram
 

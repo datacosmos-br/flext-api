@@ -9,10 +9,9 @@
 
 This page documents the storage/cache story for `flext-api`.
 
-> **Current status:** `flext-api` does not expose a storage, cache, or file
-> abstraction API. File-like payloads are transported as request/response bodies
-> through the public `FlextApi` facade and `m.Api.HttpRequest` /
-> `m.Api.HttpResponse` models.
+> **Current status:** `flext-api` does not expose a storage, cache, or file abstraction
+> API. File-like payloads are transported as request/response bodies through the public
+> `FlextApi` facade and `m.Api.HttpRequest` / `m.Api.HttpResponse` models.
 
 ## Modeling File Payloads with HTTP Models
 
