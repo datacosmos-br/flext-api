@@ -20,7 +20,7 @@ The idiomatic way to add behavior around HTTP calls is to subclass `FlextApi` an
 override the verbs you care about. The example below adds request/response logging
 without relying on any non-existent middleware API.
 
-``` python
+```python
 from __future__ import annotations
 
 from flext_api import FlextApi, FlextApiSettings, m, p, r
@@ -61,10 +61,11 @@ result = api.get("/users")
 assert result.success
 assert result.unwrap().status_code == 200
 ```
+
 ## What Is Not Implemented
 
-The following middleware concepts are **not** part of the current public API
-and are therefore not documented as executable examples:
+The following middleware concepts are **not** part of the current public API and are
+therefore not documented as executable examples:
 
 - `FlextApiMiddleware` base class
 - `MiddlewarePipeline` chain
@@ -73,6 +74,9 @@ and are therefore not documented as executable examples:
 - Decorators such as `require_roles` or `require_permissions`
 - FastAPI `app.add_middleware(...)` integration
 
-If a future release adds a first-class middleware API, this page will be
-updated with real, runnable examples.
-````
+If a future release adds a first-class middleware API, this page will be updated with
+real, runnable examples.
+
+```
+
+```

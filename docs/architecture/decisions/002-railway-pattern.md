@@ -64,7 +64,7 @@ Every public method returns `p.Result[T]`. Operations are composed using `flat_m
 
 ### Option 1: Traditional Exceptions
 
-``` python notest
+````python notest
 from __future__ import annotations
 
 import httpx
@@ -145,10 +145,11 @@ api = FakeUserApi(runtime_settings=FlextApiSettings(base_url="https://example.co
 result = api.fetch_user(123)
 assert result.success
 assert result.unwrap().body["name"] == "Alice"
-```
+````
+
 ### Usage in Application Code
 
-```python notest
+````python notest
 from __future__ import annotations
 
 from flext_api import FlextApi, FlextApiSettings, m, p, r
@@ -215,7 +216,8 @@ def test_get_user_not_found():
 
 test_get_user_success()
 test_get_user_not_found()
-```
+````
+
 ## Migration Strategy
 
 - [x] Implement `r` integration in all HTTP operations
@@ -242,9 +244,12 @@ r[str].fail("Invalid user ID: must be a positive integer")
 r[str].fail("HTTP request timeout after 30 seconds")
 r[str].fail("JSON parsing failed: invalid response format")
 ```
+
 ## References
 
 - [Railway-Oriented Programming](https://fsharpforfunandprofit.com/rop/)
 - GitHub Issue: #156 - Railway Pattern Implementation
 
-````
+```
+
+```

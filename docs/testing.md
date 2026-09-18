@@ -230,7 +230,9 @@ def make_settings(
 
 
 def make_api(settings: FlextApiSettings | None = None) -> FlextApi:
-    return FlextApi(runtime_settings=settings if settings is not None else make_settings())
+    return FlextApi(
+        runtime_settings=settings if settings is not None else make_settings()
+    )
 
 
 def make_client(settings: FlextApiSettings | None = None) -> FlextApiClient:
