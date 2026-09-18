@@ -12,7 +12,7 @@
 
 <!-- AUTO-GENERATED — DO NOT EDIT MANUALLY -->
 
-- Version: `0.12.0rc0`
+- Version: `0.12.0`
 - Project class: `domain`
 - Package: `flext_api`
 - Description: FLEXT API - High-Performance REST API with FastAPI
