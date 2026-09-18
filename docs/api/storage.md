@@ -15,7 +15,7 @@ This page documents the storage/cache story for `flext-api`.
 
 ## Modeling File Payloads with HTTP Models
 
-``` python
+```python
 from __future__ import annotations
 
 from flext_api import FlextApi, FlextApiSettings, m, p, r
@@ -55,16 +55,20 @@ body = result.unwrap().body
 assert body["filename"] == "report.txt"
 assert body["id"] == 1
 ```
+
 ## What Is Not Implemented
 
-The following storage concepts are **not** part of the current public API and
-are therefore not documented as executable examples:
+The following storage concepts are **not** part of the current public API and are
+therefore not documented as executable examples:
 
 - `FlextApiStorage`, `FlextApiCache`, `MultiBackendStorage`
 - `FlextFileProcessor`, `FileUploadMiddleware`
 - `UploadFile`, `ImageResizer`, `ImageOptimizer`, `VirusScanner`
 - File lifecycle helpers such as TTL, clear, or size operations
 
-If a future release adds a storage abstraction, this page will be updated with
-real, runnable examples.
-````
+If a future release adds a storage abstraction, this page will be updated with real,
+runnable examples.
+
+```
+
+```

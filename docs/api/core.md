@@ -28,7 +28,7 @@ executes validated `m.Api.HttpRequest` instances through `request(...)`. It does
 expose `get/post/put/delete/patch` directly; those methods live on the `FlextApi`
 facade.
 
-``` python notest
+````python notest
 from __future__ import annotations
 
 from flext_api import FlextApiClient, FlextApiSettings, c, m, p
@@ -121,7 +121,8 @@ result: p.Result[m.Api.HttpResponse] = api.get("/users")
 result = api.get("/users", request_kwargs={"params": {"limit": 10, "offset": 0}})
 
 result = api.get("/users", headers={"Accept": "application/json"})
-```
+````
+
 **POST/PUT/PATCH/DELETE Requests:**
 
 ```python
@@ -141,13 +142,14 @@ patch_result = api.patch("/users/123", data={"email": "new@example.com"})
 
 delete_result = api.delete("/users/123")
 ```
+
 ## Configuration
 
 ### FlextApiSettings - Configuration Model
 
-`FlextApiSettings` is a Pydantic settings model. Project-specific fields are
-nested under the `Api` namespace, but flat constructor arguments are automatically
-lifted into that namespace for convenience.
+`FlextApiSettings` is a Pydantic settings model. Project-specific fields are nested
+under the `Api` namespace, but flat constructor arguments are automatically lifted into
+that namespace for convenience.
 
 ```python
 from __future__ import annotations
@@ -172,6 +174,7 @@ settings_nested = FlextApiSettings(
 print(settings.Api.base_url)
 print(settings.Api.timeout)
 ```
+
 To extend settings with custom fields, subclass `FlextApiSettings` and add fields
 outside the `Api` namespace or declare an additional nested group.
 
@@ -192,12 +195,12 @@ config = MyApiConfig(base_url="https://api.example.com", custom_setting="custom"
 assert config.custom_setting == "custom"
 assert config.Api.base_url == "https://api.example.com"
 ```
+
 ## HTTP Models
 
 ### Request/Response Models
 
-HTTP payloads are represented by immutable Pydantic value models under
-`m.Api`.
+HTTP payloads are represented by immutable Pydantic value models under `m.Api`.
 
 ```python
 from __future__ import annotations
@@ -223,12 +226,13 @@ response = m.Api.create_response(
 assert response.success
 assert response.status_code == 201
 ```
+
 ## HTTP Utilities
 
 ### RequestUtils - Helper Functions
 
-`u.Api.RequestUtils` provides small, pure helpers for normalizing request
-components before they are validated into `m.Api.HttpRequest`.
+`u.Api.RequestUtils` provides small, pure helpers for normalizing request components
+before they are validated into `m.Api.HttpRequest`.
 
 ```python
 from __future__ import annotations
@@ -259,11 +263,12 @@ timeout_result = u.Api.RequestUtils.coerce_positive_timeout(5.0)
 assert timeout_result.success
 print(timeout_result.unwrap())
 ```
+
 ## Usage Examples
 
 ### Complete HTTP Client Example
 
-```python notest
+````python notest
 from __future__ import annotations
 
 from flext_api import FlextApi, FlextApiSettings, m, p, r

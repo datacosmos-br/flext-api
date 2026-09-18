@@ -98,9 +98,10 @@ concerns across multiple layers, designed for extensibility and maintainability.
 
 **Domain Patterns:**
 
-``` python
+```python
 from __future__ import annotations
 ```
+
 **Key Components:**
 
 - **FlextApiClient**: Main HTTP client implementation
@@ -117,31 +118,37 @@ FLEXT-API uses a plugin system for protocol extensibility.
 ```python
 from __future__ import annotations
 ```
+
 ### Request Processing Pipeline
 
 ```python
 from __future__ import annotations
 ```
+
 ### Storage Interface
 
 ```python
 from __future__ import annotations
 ```
+
 ### Cache Configuration
 
 ```python
 from __future__ import annotations
 ```
+
 ### Security Middleware
 
 ```python
 from __future__ import annotations
 ```
+
 ### Performance Monitoring
 
 ```python
 from __future__ import annotations
 ```
+
 ### Deployment Configuration
 
 ```text
@@ -162,9 +169,10 @@ HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
 # Start application
 CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
 ```
+
 ### Kubernetes Deployment
 
-```yaml
+````yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -249,7 +257,8 @@ class CustomProtocol:
 # Register new protocol
 registry = ProtocolRegistry()
 registry.register("custom", CustomProtocol())
-```
+````
+
 ### Custom Middleware
 
 ```python notest
@@ -273,6 +282,7 @@ class CustomBusinessMiddleware:
 # Register middleware
 app.add_middleware(CustomBusinessMiddleware())
 ```
+
 ## Performance Considerations
 
 ### Bottlenecks and Optimization
@@ -300,7 +310,7 @@ app.add_middleware(CustomBusinessMiddleware())
 
 ### Monitoring and Optimization
 
-```python notest
+````python notest
 from __future__ import annotations
 
 

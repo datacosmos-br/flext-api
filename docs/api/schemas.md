@@ -16,7 +16,7 @@ This page documents the schema/model story for `flext-api`.
 
 ## Public HTTP Models
 
-``` python
+```python
 from __future__ import annotations
 
 from flext_api import c, m
@@ -40,16 +40,20 @@ response = m.Api.create_response(
 assert response.success
 assert response.status_code == 201
 ```
+
 ## What Is Not Implemented
 
-The following schema concepts are **not** part of the current public API and
-are therefore not documented as executable examples:
+The following schema concepts are **not** part of the current public API and are
+therefore not documented as executable examples:
 
 - `OpenApiSchema`, `OpenApiConfig`, `create_fastapi_app`
 - `AsyncApiSchema`, `JsonSchema`, `JsonSchemaValidator`
 - `SchemaValidationError`, `JsonSchemaExtension`
 - FastAPI-specific `response_model` integration
 
-If a future release adds schema generation helpers, this page will be updated
-with real, runnable examples.
-````
+If a future release adds schema generation helpers, this page will be updated with real,
+runnable examples.
+
+```
+
+```

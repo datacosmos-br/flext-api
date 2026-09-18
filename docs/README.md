@@ -39,7 +39,7 @@ Pydantic v2 request/response models, and railway-oriented error handling through
 > implemented. Additional protocols, middleware, and schema generation are not yet part
 > of the public API.
 
-______________________________________________________________________
+---
 
 ## Overview
 
@@ -62,7 +62,7 @@ enterprise-grade patterns: typed settings, validated request/response models, an
 - **FLEXT Data Platform** → HTTP operations for data pipeline orchestration
 - **FLEXT Projects** → Shared HTTP facade preventing duplicate implementations
 
-______________________________________________________________________
+---
 
 ## Current Source Structure
 
@@ -98,7 +98,7 @@ src/flext_api/
 - **Configuration SSOT** — `config/*.yaml` and `FlextApiSettings` as the single source
   of truth
 
-______________________________________________________________________
+---
 
 ## Documentation Structure
 
@@ -116,7 +116,7 @@ ______________________________________________________________________
 - **[Testing Guide](guides/testing.md)** — Testing strategies and examples
 - **[Troubleshooting](guides/troubleshooting.md)** — Common issues and solutions
 
-______________________________________________________________________
+---
 
 ## Quick Start
 
@@ -132,7 +132,7 @@ uv sync --package flext-api
 
 ### Basic HTTP Client Usage
 
-``` python notest
+````python notest
 from __future__ import annotations
 
 from flext_api import FlextApi, FlextApiSettings
@@ -164,14 +164,15 @@ settings = FlextApiSettings(
 
 print(settings.Api.base_url)
 print(settings.Api.timeout)
-```
+````
+
 ### FastAPI Application Setup
 
 A FastAPI application factory is **not** currently part of the public API. Use
-`FlextApi` and `FlextApiClient` directly in your own FastAPI/Starlette
-application if needed.
+`FlextApi` and `FlextApiClient` directly in your own FastAPI/Starlette application if
+needed.
 
-______________________________________________________________________
+---
 
 ## Testing
 
@@ -188,17 +189,17 @@ uv run pytest tests/integration/ # Integration tests
 uv run pytest tests/e2e/          # End-to-end tests
 ```
 
-______________________________________________________________________
+---
 
 ## Current Status
 
-| Metric                 | Status      | Details                                      |
-| ---------------------- | ----------- | -------------------------------------------- |
-| **Core Functionality** | Complete    | HTTP client facade and settings implemented  |
-| **Test Coverage**      | In progress | Examples validated; package tests growing    |
-| **Type Safety**        | Strict      | FLEXT patterns and Pydantic v2 models        |
-| **Code Quality**       | In progress | Ruff / Pyrefly gates via `make check`        |
-| **FLEXT Integration**  | Active      | Full flext-core facade integration           |
+| Metric                 | Status      | Details                                     |
+| ---------------------- | ----------- | ------------------------------------------- |
+| **Core Functionality** | Complete    | HTTP client facade and settings implemented |
+| **Test Coverage**      | In progress | Examples validated; package tests growing   |
+| **Type Safety**        | Strict      | FLEXT patterns and Pydantic v2 models       |
+| **Code Quality**       | In progress | Ruff / Pyrefly gates via `make check`       |
+| **FLEXT Integration**  | Active      | Full flext-core facade integration          |
 
 ### Production Readiness
 
@@ -208,7 +209,7 @@ ______________________________________________________________________
 - **Documentation**: User-facing guides and API reference updated to the real API
 - **Testing**: Markdown examples run under `uv run pytest --markdown-docs`
 
-______________________________________________________________________
+---
 
 ## Contributing
 
@@ -217,7 +218,7 @@ ______________________________________________________________________
 3. **Documentation**: Update relevant guides when changing public APIs
 4. **Quality Gates**: Run `make check` before opening a PR
 
-______________________________________________________________________
+---
 
 ## Roadmap
 
@@ -239,7 +240,10 @@ ______________________________________________________________________
 - **Middleware API**: First-class request/response interception (if added)
 - **Schema Generation**: OpenAPI/JSON Schema helpers from public models (if added)
 
-______________________________________________________________________
+---
 
 **FLEXT-API** — Enterprise HTTP Foundation | Built for reliability and scale
-````
+
+```
+
+```

@@ -52,7 +52,7 @@ a railway result-oriented lifecycle contract.
 
 ### Protocol Plugin Manager
 
-``` python
+```python
 from __future__ import annotations
 
 from flext_api import FlextApiProtocolPluginManager, FlextApiProtocolPluginTypes, p, r
@@ -86,6 +86,7 @@ assert resolve_result.unwrap().version == "1.0.0"
 
 assert manager.unload_plugin("json-schema").success
 ```
+
 ### HTTP Protocol Facade
 
 ```python
@@ -119,6 +120,7 @@ result = api.health_check()
 assert result.success
 assert result.unwrap().body["status"] == "healthy"
 ```
+
 ## What Is Not Implemented
 
 The following protocols are **not** currently exposed by `flext-api`:
@@ -129,11 +131,13 @@ The following protocols are **not** currently exposed by `flext-api`:
 - gRPC / Protocol Buffers
 - MQTT
 
-If a future release adds support for additional protocols, this page will be
-updated with real, runnable examples.
+If a future release adds support for additional protocols, this page will be updated
+with real, runnable examples.
 
 ## References
 
 - GitHub Issue: #159 - Protocol Plugin Architecture
 
-````
+```
+
+```
