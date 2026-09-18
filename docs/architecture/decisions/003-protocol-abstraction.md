@@ -1,6 +1,7 @@
 # 003. Protocol Plugin Architecture
 
 <!-- TOC START -->
+
 - [Status](#status)
 - [Context](#context)
 - [Decision](#decision)
@@ -12,6 +13,7 @@
   - [HTTP Protocol Facade](#http-protocol-facade)
 - [What Is Not Implemented](#what-is-not-implemented)
 - [References](#references)
+
 <!-- TOC END -->
 
 Date: 2025-01-01
@@ -50,7 +52,7 @@ shards, which provide a railway result-oriented lifecycle contract.
 
 ### Protocol Plugin Manager
 
-```python
+````python
 from __future__ import annotations
 
 from flext_api import FlextApiProtocolPluginManager, FlextApiProtocolPluginTypes, p, r
@@ -111,7 +113,7 @@ class FakeHttpApi(HttpOnlyApi):
         return r[m.Api.HttpResponse].ok(m.Api.create_response(status_code=404, body={}))
 
 
-api = FakeHttpApi(settings=FlextApiSettings(base_url="https://example.com"))
+api = FakeHttpApi(runtime_settings=FlextApiSettings(base_url="https://example.com"))
 result = api.health_check()
 assert result.success
 assert result.unwrap().body["status"] == "healthy"```
@@ -131,3 +133,4 @@ updated with real, runnable examples.
 ## References
 
 - GitHub Issue: #159 - Protocol Plugin Architecture
+````

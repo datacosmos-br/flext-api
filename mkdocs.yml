@@ -10,6 +10,7 @@ site_dir: .reports/docs/site
 
 exclude_docs: |
   /README.md
+  /API/**
 
 theme:
   name: material
@@ -36,7 +37,6 @@ theme:
       toggle:
         icon: material/weather-sunny
         name: Switch to light mode
-
 
 plugins:
   - search

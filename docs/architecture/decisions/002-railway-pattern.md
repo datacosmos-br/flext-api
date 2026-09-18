@@ -1,6 +1,7 @@
 # 002. Railway-Oriented Error Handling
 
 <!-- TOC START -->
+
 - [Status](#status)
 - [Context](#context)
 - [Decision](#decision)
@@ -20,6 +21,7 @@
   - [Railway Pattern Guidelines](#railway-pattern-guidelines)
   - [Error Message Standards](#error-message-standards)
 - [References](#references)
+
 <!-- TOC END -->
 
 Date: 2025-01-01
@@ -54,7 +56,7 @@ FLEXT-API uses **Railway-Oriented Programming** with `r[T]` for all HTTP operati
 
 ### Option 1: Traditional Exceptions
 
-```python
+````python
 from __future__ import annotations
 
 import httpx
@@ -129,7 +131,7 @@ class FakeUserApi(UserApi):
         )
 
 
-api = FakeUserApi(settings=FlextApiSettings(base_url="https://example.com"))
+api = FakeUserApi(runtime_settings=FlextApiSettings(base_url="https://example.com"))
 result = api.fetch_user(123)
 assert result.success
 assert result.unwrap().body["name"] == "Alice"```
@@ -154,7 +156,7 @@ class FakeProfileApi(FlextApi):
         )
 
 
-api = FakeProfileApi(settings=FlextApiSettings(base_url="https://example.com"))
+api = FakeProfileApi(runtime_settings=FlextApiSettings(base_url="https://example.com"))
 result = api.get("/users/123/profile")
 
 if result.success:
@@ -186,14 +188,14 @@ class FakeUserApi(FlextApi):
 
 
 def test_get_user_success():
-    api = FakeUserApi(settings=FlextApiSettings(base_url="https://example.com"))
+    api = FakeUserApi(runtime_settings=FlextApiSettings(base_url="https://example.com"))
     result = api.get("/users/123")
     assert result.success
     assert result.unwrap().body["name"] == "John"
 
 
 def test_get_user_not_found():
-    api = FakeUserApi(settings=FlextApiSettings(base_url="https://example.com"))
+    api = FakeUserApi(runtime_settings=FlextApiSettings(base_url="https://example.com"))
     result = api.get("/users/999")
     assert result.failure
     assert "404" in result.error
@@ -230,3 +232,4 @@ r[str].fail("JSON parsing failed: invalid response format")```
 
 - [Railway-Oriented Programming](https://fsharpforfunandprofit.com/rop/)
 - GitHub Issue: #156 - Railway Pattern Implementation
+````

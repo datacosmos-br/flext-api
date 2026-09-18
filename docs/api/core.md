@@ -1,6 +1,7 @@
 # Core API Reference
 
 <!-- TOC START -->
+
 - [Core HTTP Client](#core-http-client)
   - [FlextApiClient - Main HTTP Client](#flextapiclient-main-http-client)
   - [FlextApi - Unified Facade](#flextapi-unified-facade)
@@ -13,7 +14,7 @@
   - [RequestUtils - Helper Functions](#requestutils-helper-functions)
 - [Usage Examples](#usage-examples)
   - [Complete HTTP Client Example](#complete-http-client-example)
-<!-- TOC END -->
+  <!-- TOC END -->
 
 This section covers the core HTTP client and configuration types that form the
 public surface of `flext-api`.
@@ -27,7 +28,7 @@ executes validated `m.Api.HttpRequest` instances through `request(...)`. It does
 not expose `get/post/put/delete/patch` directly; those methods live on the
 `FlextApi` facade.
 
-```python
+````python
 from __future__ import annotations
 
 from flext_api import FlextApiClient, FlextApiSettings, c, m, p
@@ -40,7 +41,7 @@ settings = FlextApiSettings(
     default_headers={"User-Agent": "flext-api"},
 )
 
-client = FlextApiClient(settings=settings)
+client = FlextApiClient(runtime_settings=settings)
 
 # The client exposes configured values as properties.
 print(client.base_url)  # https://api.example.com
@@ -86,7 +87,7 @@ from __future__ import annotations
 
 from flext_api import FlextApi, FlextApiSettings, m, p
 
-api = FlextApi(settings=FlextApiSettings(base_url="https://api.example.com"))
+api = FlextApi(runtime_settings=FlextApiSettings(base_url="https://api.example.com"))
 
 result: p.Result[m.Api.HttpResponse] = api.get(
     "/users",
@@ -111,7 +112,7 @@ from __future__ import annotations
 
 from flext_api import FlextApi, FlextApiSettings, m, p
 
-api = FlextApi(settings=FlextApiSettings(base_url="https://api.example.com"))
+api = FlextApi(runtime_settings=FlextApiSettings(base_url="https://api.example.com"))
 
 result: p.Result[m.Api.HttpResponse] = api.get("/users")
 
@@ -125,7 +126,7 @@ from __future__ import annotations
 
 from flext_api import FlextApi, FlextApiSettings, m, p
 
-api = FlextApi(settings=FlextApiSettings(base_url="https://api.example.com"))
+api = FlextApi(runtime_settings=FlextApiSettings(base_url="https://api.example.com"))
 
 post_result: p.Result[m.Api.HttpResponse] = api.post(
     "/users", data={"name": "Alice", "email": "alice@example.com"}
@@ -264,7 +265,7 @@ class UserApiClient:
     """Thin wrapper over the FlextApi facade for a user-management API."""
 
     def __init__(self, base_url: str = "https://api.example.com"):
-        self.api = FlextApi(settings=FlextApiSettings(base_url=base_url, timeout=10.0))
+        self.api = FlextApi(runtime_settings=FlextApiSettings(base_url=base_url, timeout=10.0))
 
     def list_users(self, limit: int = 10) -> p.Result[m.Api.HttpResponse]:
         return self.api.get("/users", request_kwargs={"params": {"_limit": limit}})
@@ -356,3 +357,4 @@ if delete_result.success:
 This core API provides the public HTTP surface for `flext-api`: typed settings, a
 validated request model, a monadic response model, and the `FlextApi` facade for
 convenient HTTP verbs.
+````

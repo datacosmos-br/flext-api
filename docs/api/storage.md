@@ -1,8 +1,10 @@
 # Storage API Reference
 
 <!-- TOC START -->
+
 - [Modeling File Payloads with HTTP Models](#modeling-file-payloads-with-http-models)
 - [What Is Not Implemented](#what-is-not-implemented)
+
 <!-- TOC END -->
 
 This page documents the storage/cache story for `flext-api`.
@@ -14,7 +16,7 @@ This page documents the storage/cache story for `flext-api`.
 
 ## Modeling File Payloads with HTTP Models
 
-```python
+````python
 from __future__ import annotations
 
 from flext_api import FlextApi, FlextApiSettings, m, p, r
@@ -47,7 +49,7 @@ class FakeFileUploadApi(FileUploadApi):
         )
 
 
-api = FakeFileUploadApi(settings=FlextApiSettings(base_url="https://example.com"))
+api = FakeFileUploadApi(runtime_settings=FlextApiSettings(base_url="https://example.com"))
 result = api.upload_document("report.txt", b"Hello, FLEXT!")
 assert result.success
 body = result.unwrap().body
@@ -65,3 +67,4 @@ are therefore not documented as executable examples:
 
 If a future release adds a storage abstraction, this page will be updated with
 real, runnable examples.
+````

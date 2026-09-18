@@ -1,6 +1,7 @@
 # Testing Plan & Strategy
 
 <!-- TOC START -->
+
 - [Overview](#overview)
 - [Test Structure](#test-structure)
 - [Unit Tests](#unit-tests)
@@ -10,6 +11,7 @@
 - [Mocking External APIs](#mocking-external-apis)
 - [Success Metrics](#success-metrics)
 - [Risk Mitigation](#risk-mitigation)
+
 <!-- TOC END -->
 
 ## Overview
@@ -40,7 +42,7 @@ The examples below use plain functions and deterministic `FakeApi` subclasses. T
 
 Unit tests exercise one behavior at a time. A `FakeApi` subclass replaces the real HTTP backend so the tests run without network access.
 
-```python
+````python
 from __future__ import annotations
 from flext_api import FlextApi, FlextApiSettings, m, p, r
 
@@ -71,7 +73,7 @@ class FakeApi(FlextApi):
 
 
 settings = FlextApiSettings(base_url="https://api.example.com", timeout=5.0)
-api = FakeApi(settings=settings)
+api = FakeApi(runtime_settings=settings)
 
 
 def test_get_users_returns_success() -> None:
@@ -129,7 +131,7 @@ from flext_api import FlextApi, FlextApiSettings, m, p, r
 
 class WorkflowApi(FlextApi):
     def __init__(self, settings: FlextApiSettings | None = None) -> None:
-        super().__init__(settings=settings)
+        super().__init__(runtime_settings=settings)
         object.__setattr__(self, "_orders", {})
 
     def request(self, request: m.Api.HttpRequest) -> p.Result[m.Api.HttpResponse]:
@@ -166,7 +168,7 @@ class WorkflowApi(FlextApi):
 
 
 settings = FlextApiSettings(base_url="https://api.example.com", timeout=5.0)
-api = WorkflowApi(settings=settings)
+api = WorkflowApi(runtime_settings=settings)
 
 
 def test_create_and_list_orders() -> None:
@@ -212,12 +214,12 @@ def make_settings(
 
 
 def make_api(settings: FlextApiSettings | None = None) -> FlextApi:
-    return FlextApi(settings=settings if settings is not None else make_settings())
+    return FlextApi(runtime_settings=settings if settings is not None else make_settings())
 
 
 def make_client(settings: FlextApiSettings | None = None) -> FlextApiClient:
     return FlextApiClient(
-        settings=settings if settings is not None else make_settings()
+        runtime_settings=settings if settings is not None else make_settings()
     )
 
 
@@ -252,7 +254,7 @@ class FakeApi(FlextApi):
 
 
 settings = FlextApiSettings(base_url="https://api.example.com", timeout=5.0)
-api = FakeApi(settings=settings)
+api = FakeApi(runtime_settings=settings)
 
 
 def test_with_fake_api() -> None:
@@ -280,3 +282,4 @@ test_with_fake_api()```
 ---
 
 **Next Priority**: Keep the markdown examples in `docs/testing.md` and `guides/testing.md` aligned with the current `FlextApi` contract as the library evolves.
+````

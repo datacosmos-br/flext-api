@@ -1,6 +1,7 @@
 # Protocols API Reference
 
 <!-- TOC START -->
+
 - [Protocol Architecture](#protocol-architecture)
 - [HTTP Protocol Implementation](#http-protocol-implementation)
   - [FlextApiClient Implementation](#flextapiclient-implementation)
@@ -20,7 +21,7 @@
 - [Usage Examples](#usage-examples)
   - [HTTP API Client](#http-api-client)
   - [Protocol Plugin System](#protocol-plugin-system)
-<!-- TOC END -->
+  <!-- TOC END -->
 
 This section covers the protocol implementations and stubs that enable FLEXT-API to support multiple communication protocols through a plugin architecture.
 
@@ -44,7 +45,7 @@ Protocol Layer
 
 Primary protocol implementation for REST APIs and HTTP-based communication.
 
-```python
+````python
 from __future__ import annotations
 
 from flext_api import FlextApi, FlextApiClient, FlextApiSettings, c, m, p, r
@@ -75,8 +76,8 @@ class FakeApi(FlextApi):
     """Fake API facade wired to the fake HTTP client."""
 
     def __init__(self, settings: FlextApiSettings | None = None) -> None:
-        super().__init__(settings=settings)
-        self._client = FakeHttpClient(settings=self.settings)
+        super().__init__(runtime_settings=settings)
+        self._client = FakeHttpClient(runtime_settings=self.settings)
 
 
 settings = FlextApiSettings(
@@ -84,7 +85,7 @@ settings = FlextApiSettings(
     timeout=30.0,
     default_headers={"User-Agent": "FLEXT-API/0.9.9"},
 )
-api = FakeApi(settings=settings)
+api = FakeApi(runtime_settings=settings)
 
 result = api.get("/users", request_kwargs={"params": {"limit": "10"}})
 if result.success:
@@ -228,9 +229,9 @@ class UserApiClient:
     """Client supporting HTTP operations through the real FLEXT-API facade."""
 
     def __init__(self, base_url: str = "https://api.example.com"):
-        self.api = FlextApi(settings=FlextApiSettings(base_url=base_url, timeout=10.0))
+        self.api = FlextApi(runtime_settings=FlextApiSettings(base_url=base_url, timeout=10.0))
         # Wire a fake client so the example runs without network access
-        self.api._client = FakeHttpClient(settings=self.api.settings)
+        self.api._client = FakeHttpClient(runtime_settings=self.api.settings)
 
     def get_user(self, user_id: str) -> t.JsonMapping | None:
         """Get user via REST API."""
@@ -335,3 +336,4 @@ if resolved.success:
 shutdown_result = manager.shutdown_all()
 assert shutdown_result.success```
 This protocol-based architecture provides a flexible foundation for supporting multiple communication patterns while maintaining consistent error handling and type safety across all protocols. The public HTTP surface and plugin manager are available today; additional protocols can be added through the plugin system.
+````

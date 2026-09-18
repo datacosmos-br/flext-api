@@ -30,7 +30,7 @@ class TestsFlextApiAsyncClientSmoke(TestsFlextApiModelContract):
     ) -> None:
         """The async client surfaces its configured base_url and timeout."""
         settings = FlextApiSettings(base_url="https://service.example", timeout=9.5)
-        client = FlextApiAsyncClient(settings=settings)
+        client = FlextApiAsyncClient(runtime_settings=settings)
         tm.that(client.base_url, eq="https://service.example")
         tm.that(client.timeout, eq=pytest.approx(9.5))
 
@@ -38,7 +38,7 @@ class TestsFlextApiAsyncClientSmoke(TestsFlextApiModelContract):
     async def test_async_client_execute_reports_success(self) -> None:
         """A configured async client executes its lifecycle successfully."""
         client = FlextApiAsyncClient(
-            settings=FlextApiSettings(base_url="https://service.example")
+            runtime_settings=FlextApiSettings(base_url="https://service.example")
         )
         result = client.execute()
         tm.that(result.success, eq=True)
@@ -50,7 +50,7 @@ class TestsFlextApiAsyncClientSmoke(TestsFlextApiModelContract):
     async def test_async_client_request_method_is_async(self) -> None:
         """Async client request method is a coroutine function."""
         client = FlextApiAsyncClient(
-            settings=FlextApiSettings(base_url="https://httpbin.org")
+            runtime_settings=FlextApiSettings(base_url="https://httpbin.org")
         )
         tm.that(inspect.iscoroutinefunction(client.request), eq=True)
 
@@ -58,7 +58,7 @@ class TestsFlextApiAsyncClientSmoke(TestsFlextApiModelContract):
     async def test_async_client_context_manager_pattern(self) -> None:
         """Async client can be used with async context manager semantics."""
         settings = FlextApiSettings(base_url="https://service.example")
-        client = FlextApiAsyncClient(settings=settings)
+        client = FlextApiAsyncClient(runtime_settings=settings)
 
         # Verify the client has the expected async interface
         tm.that(hasattr(client, "request"), eq=True)
@@ -72,7 +72,7 @@ class TestsFlextApiAsyncClientSmoke(TestsFlextApiModelContract):
     async def test_async_client_same_interface_as_sync(self) -> None:
         """Async client mirrors sync client's public properties and methods."""
         client = FlextApiAsyncClient(
-            settings=FlextApiSettings(base_url="https://service.example")
+            runtime_settings=FlextApiSettings(base_url="https://service.example")
         )
 
         # Same properties

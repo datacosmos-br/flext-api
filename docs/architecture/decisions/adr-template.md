@@ -1,6 +1,7 @@
 # [Number]. [Title]
 
 <!-- TOC START -->
+
 - [Status](#status)
 - [Context](#context)
 - [Decision](#decision)
@@ -18,6 +19,7 @@
 - [Monitoring and Metrics](#monitoring-and-metrics)
 - [Rollback Plan](#rollback-plan)
 - [References](#references)
+
 <!-- TOC END -->
 
 Date: [YYYY-MM-DD]
@@ -100,7 +102,7 @@ Date: [YYYY-MM-DD]
 - [Reference to research or article]
 - [Related ADR: ADR-XXXX]
 
-______________________________________________________________________
+---
 
 **Decision Maker**: [Name/Team]
 **Reviewers**: [List of reviewers]

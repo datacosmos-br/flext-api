@@ -6,6 +6,7 @@
 > **Standalone / independent mode:** when `../AGENTS.md` does not resolve, pin the parent raw `AGENTS.md` URL to the same branch/release as this package (never `main`).
 
 <!-- AIHUB-AGENTS-SCOPE-LOCAL-BEGIN -->
+
 **Package:** `flext_api` · deps: `flext-core`, `flext-web`
 
 ## Overview
@@ -24,8 +25,8 @@ src/flext_api/
 
 ## Code Map
 
-| Symbol | Kind | Location | Role |
-|--------|------|----------|------|
+| Symbol     | Kind  | Location | Role                                                                 |
+| ---------- | ----- | -------- | -------------------------------------------------------------------- |
 | `FlextApi` | class | `api.py` | facade: `client`, `settings`, `request`, `get/post/put/patch/delete` |
 
 All method calls funnel through the private `_http_method`; headers/kwargs are assembled per call.
@@ -43,10 +44,12 @@ All method calls funnel through the private `_http_method`; headers/kwargs are a
 make check PROJECT=flext-api
 make test  PROJECT=flext-api       # tests/unit
 ```
+
 <!-- AIHUB-AGENTS-SCOPE-LOCAL-END -->
 
 <!-- AIHUB-GOVERNANCE-INSTRUCTIONS-BEGIN -->
 <!-- AIHUB-GOVERNANCE-CAPSULE v1 sha256:e1b7a9ae088643bf660b78ff1aea55d49076ec46518707976d77c78ed23db5db -->
+
 # Generated session governance capsule
 
 This projection is derived by `agentsctl sync`; edit canonical `AGENTS.md`, `rules/`, `skills/`, or `commands/`, never this output. The operator's newest request has precedence. Provider hooks are delivery mechanisms, not policy owners.
@@ -249,4 +252,5 @@ sufficient.
 
 Skills: caveman, context-canary, fix-forward-collaboration, governance-audit, operator-correction-learning, plan-focus-recovery, sprint-closure, strategic-compact, verification-loop
 Commands: add-language-rules, database-migration, feature-development, ghi-list, pr-list, ralph-loop, security-triage, synthesize-governance
+
 <!-- AIHUB-GOVERNANCE-INSTRUCTIONS-END -->

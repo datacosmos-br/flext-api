@@ -1,6 +1,7 @@
 # Architecture Decision Records (ADRs)
 
 <!-- TOC START -->
+
 - [What are ADRs](#what-are-adrs)
 - [ADR Template](#adr-template)
 - [Status](#status)
@@ -26,7 +27,7 @@
 - [Examples from Other Projects](#examples-from-other-projects)
   - [Successful ADR Implementations](#successful-adr-implementations)
   - [Lessons Learned](#lessons-learned)
-<!-- TOC END -->
+  <!-- TOC END -->
 
 This directory contains Architecture Decision Records (ADRs) that document important architectural decisions made for the FLEXT-API project.
 

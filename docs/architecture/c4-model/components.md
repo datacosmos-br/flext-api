@@ -1,6 +1,7 @@
 # C4 Model - Components
 
 <!-- TOC START -->
+
 - [Overview](#overview)
 - [Component Diagram](#component-diagram)
 - [Component Descriptions](#component-descriptions)
@@ -18,7 +19,7 @@
   - [Reliability](#reliability)
   - [Security](#security)
   - [Maintainability](#maintainability)
-<!-- TOC END -->
+  <!-- TOC END -->
 
 ## Overview
 
@@ -527,6 +528,6 @@ Rel(secret_manager, flext_container, "Stores", "encrypted secrets")
 - **Middleware Stack**: Provides clean separation of cross-cutting concerns
 - **Config Watcher**: Supports zero-downtime configuration updates
 
-______________________________________________________________________
+---
 
 **Next Level**: [Code Diagram](code.md) - Implementation details and relationships
