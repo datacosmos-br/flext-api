@@ -1,6 +1,7 @@
 # FLEXT-API
 
 <!-- TOC START -->
+
 - [Overview](#overview)
   - [Core Features](#core-features)
   - [Integration with the FLEXT Ecosystem](#integration-with-the-flext-ecosystem)
@@ -22,7 +23,7 @@
   - [Immediate (Next Release)](#immediate-next-release)
   - [Short-term (Next Month)](#short-term-next-month)
   - [Long-term (Next Quarter)](#long-term-next-quarter)
-<!-- TOC END -->
+  <!-- TOC END -->
 
 [![Python 3.13+](https://img.shields.io/badge/python-3.13+-blue.svg)](https://www.python.org/downloads/)
 [![Current](https://img.shields.io/badge/status-production--ready-brightgreen.svg)](#)
@@ -38,7 +39,7 @@ error handling through `p.Result`.
 > layer implemented. Additional protocols, middleware, and schema generation are
 > not yet part of the public API.
 
-______________________________________________________________________
+---
 
 ## Overview
 
@@ -61,7 +62,7 @@ models, and `p.Result`/`r` error handling.
 - **FLEXT Data Platform** → HTTP operations for data pipeline orchestration
 - **FLEXT Projects** → Shared HTTP facade preventing duplicate implementations
 
-______________________________________________________________________
+---
 
 ## Current Source Structure
 
@@ -95,7 +96,7 @@ src/flext_api/
 - **Plugin Architecture** — Protocol plugin manager ready for future protocols
 - **Configuration SSOT** — `config/*.yaml` and `FlextApiSettings` as the single source of truth
 
-______________________________________________________________________
+---
 
 ## Documentation Structure
 
@@ -112,7 +113,7 @@ ______________________________________________________________________
 - **[Testing Guide](guides/testing.md)** — Testing strategies and examples
 - **[Troubleshooting](guides/troubleshooting.md)** — Common issues and solutions
 
-______________________________________________________________________
+---
 
 ## Quick Start
 
@@ -128,7 +129,7 @@ uv sync --package flext-api
 
 ### Basic HTTP Client Usage
 
-```python
+````python
 from __future__ import annotations
 
 from flext_api import FlextApi, FlextApiSettings
@@ -234,3 +235,4 @@ ______________________________________________________________________
 ______________________________________________________________________
 
 **FLEXT-API** — Enterprise HTTP Foundation | Built for reliability and scale
+````

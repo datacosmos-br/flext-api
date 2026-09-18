@@ -1,6 +1,7 @@
 # C4 Model - System Context
 
 <!-- TOC START -->
+
 - [Overview](#overview)
 - [System Context Diagram](#system-context-diagram)
 - [Context Description](#context-description)
@@ -18,7 +19,7 @@
 - [Risk Assessment](#risk-assessment)
   - [High Risk Items](#high-risk-items)
   - [Mitigation Strategies](#mitigation-strategies)
-<!-- TOC END -->
+  <!-- TOC END -->
 
 ## Overview
 
@@ -192,6 +193,6 @@ Rel(flext_api, external_api, "Makes HTTP requests", "REST/GraphQL")
 1. **Monitoring**: Extensive logging and performance monitoring
 1. **Documentation**: Detailed architecture and API documentation
 
-______________________________________________________________________
+---
 
 **Next Level**: [Container Diagram](containers.md) - Technology choices and deployment view

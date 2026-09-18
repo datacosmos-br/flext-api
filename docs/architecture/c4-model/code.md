@@ -1,6 +1,7 @@
 # C4 Model - Code
 
 <!-- TOC START -->
+
 - [Overview](#overview)
 - [Code Diagram](#code-diagram)
 - [Code Structure Analysis](#code-structure-analysis)
@@ -12,7 +13,7 @@
   - [Response Caching](#response-caching)
 - [Security Implementation](#security-implementation)
   - [Authentication Handlers](#authentication-handlers)
-<!-- TOC END -->
+  <!-- TOC END -->
 
 ## Overview
 
@@ -206,7 +207,7 @@ flext_api/
 
 #### FlextApi (api.py)
 
-```python
+````python
 from __future__ import annotations```
 ### Test Fixtures and Mocks
 
@@ -346,3 +347,4 @@ class AuthenticationManager:
 ---
 
 **C4 Model Complete**: This concludes the C4 model documentation for FLEXT-API, showing the progression from high-level system context down to implementation details.
+````

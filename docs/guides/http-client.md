@@ -1,10 +1,12 @@
 # HTTP Client Guide
 
 <!-- TOC START -->
+
 - [Facade Usage](#facade-usage)
 - [Client Usage](#client-usage)
 - [Request Body](#request-body)
 - [Error Handling](#error-handling)
+
 <!-- TOC END -->
 
 FLEXT-API exposes two HTTP entry points:
@@ -14,7 +16,7 @@ FLEXT-API exposes two HTTP entry points:
 
 ## Facade Usage
 
-```python
+````python
 from __future__ import annotations
 from flext_api import FlextApi, FlextApiSettings
 
@@ -81,3 +83,4 @@ else:
     response = result.value
     print(response.status_code)```
 The result contract is the canonical FLEXT railway contract: inspect `success` or `failure`, then use `value`, `error`, `unwrap()`, or higher-order methods such as `map` and `flat_map`.
+````

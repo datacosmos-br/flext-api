@@ -1,6 +1,7 @@
 # Testing Plan & Strategy
 
 <!-- TOC START -->
+
 - [Overview](#overview)
 - [Test Structure](#test-structure)
 - [Unit Tests](#unit-tests)
@@ -10,6 +11,7 @@
 - [Mocking External APIs](#mocking-external-apis)
 - [Success Metrics](#success-metrics)
 - [Risk Mitigation](#risk-mitigation)
+
 <!-- TOC END -->
 
 ## Overview
@@ -40,7 +42,7 @@ The examples below use plain functions and deterministic `FakeApi` subclasses. T
 
 Unit tests exercise one behavior at a time. A `FakeApi` subclass replaces the real HTTP backend so the tests run without network access.
 
-```python
+````python
 from __future__ import annotations
 from flext_api import FlextApi, FlextApiSettings, m, p, r
 
@@ -280,3 +282,4 @@ test_with_fake_api()```
 ---
 
 **Next Priority**: Keep the markdown examples in `docs/testing.md` and `guides/testing.md` aligned with the current `FlextApi` contract as the library evolves.
+````

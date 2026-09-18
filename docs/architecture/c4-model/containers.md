@@ -1,6 +1,7 @@
 # C4 Model - Containers
 
 <!-- TOC START -->
+
 - [Overview](#overview)
 - [Container Diagram](#container-diagram)
 - [Container Descriptions](#container-descriptions)
@@ -24,7 +25,7 @@
   - [Metrics Collection](#metrics-collection)
   - [Logging Strategy](#logging-strategy)
   - [Health Checks](#health-checks)
-<!-- TOC END -->
+  <!-- TOC END -->
 
 ## Overview
 
@@ -327,6 +328,6 @@ database:
 - **Performance Health**: Response time thresholds and error rates
 - **Business Health**: Critical business logic validation
 
-______________________________________________________________________
+---
 
 **Next Level**: [Component Diagram](components.md) - Detailed component relationships

@@ -1,6 +1,7 @@
 # Phase 1 Implementation Plan: HTTP Foundation Core
 
 <!-- TOC START -->
+
 - [Overview](#overview)
 - [Phase Objectives](#phase-objectives)
   - [Primary Goals](#primary-goals)
@@ -40,7 +41,7 @@
 - [Lessons Learned & Best Practices](#lessons-learned-best-practices)
   - [Implementation Insights](#implementation-insights)
   - [Architectural Decisions](#architectural-decisions)
-<!-- TOC END -->
+  <!-- TOC END -->
 
 ## Overview
 
@@ -407,7 +408,7 @@
 1. **Plugin Architecture**: Extensible middleware and protocol systems
 1. **Clean Architecture**: Clear separation of concerns and testability
 
-______________________________________________________________________
+---
 
 **Phase 1 Status**: 70% Complete
 **Target Completion**: November 1, 2025
