@@ -1,25 +1,26 @@
 # Middleware API Reference
 
 <!-- TOC START -->
+
 - [Wrapping the Public Facade](#wrapping-the-public-facade)
 - [What Is Not Implemented](#what-is-not-implemented)
+
 <!-- TOC END -->
 
 This page documents the current middleware story for `flext-api`.
 
-> **Current status:** `flext-api` does not expose a dedicated middleware
-> pipeline API. Cross-cutting concerns such as logging, authentication, and
-> request/response transformation are handled through the public `FlextApi`
-> facade, typed settings, and the `m.Api.HttpRequest` / `m.Api.HttpResponse`
-> models.
+> **Current status:** `flext-api` does not expose a dedicated middleware pipeline API.
+> Cross-cutting concerns such as logging, authentication, and request/response
+> transformation are handled through the public `FlextApi` facade, typed settings, and
+> the `m.Api.HttpRequest` / `m.Api.HttpResponse` models.
 
 ## Wrapping the Public Facade
 
-The idiomatic way to add behavior around HTTP calls is to subclass `FlextApi`
-and override the verbs you care about. The example below adds request/response
-logging without relying on any non-existent middleware API.
+The idiomatic way to add behavior around HTTP calls is to subclass `FlextApi` and
+override the verbs you care about. The example below adds request/response logging
+without relying on any non-existent middleware API.
 
-```python
+``` python
 from __future__ import annotations
 
 from flext_api import FlextApi, FlextApiSettings, m, p, r
@@ -55,10 +56,11 @@ class FakeLoggingApi(LoggingApi):
         )
 
 
-api = FakeLoggingApi(settings=FlextApiSettings(base_url="https://example.com"))
+api = FakeLoggingApi(runtime_settings=FlextApiSettings(base_url="https://example.com"))
 result = api.get("/users")
 assert result.success
-assert result.unwrap().status_code == 200```
+assert result.unwrap().status_code == 200
+```
 ## What Is Not Implemented
 
 The following middleware concepts are **not** part of the current public API
@@ -73,3 +75,4 @@ and are therefore not documented as executable examples:
 
 If a future release adds a first-class middleware API, this page will be
 updated with real, runnable examples.
+````

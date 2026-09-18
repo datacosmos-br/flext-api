@@ -1,9 +1,11 @@
 # flext-api API Reference
 
 <!-- TOC START -->
+
 - [Source of Truth](#source-of-truth)
 - [Generated Pages](#generated-pages)
 - [Surface Summary](#surface-summary)
+
 <!-- TOC END -->
 
 <!-- AUTO-GENERATED — DO NOT EDIT MANUALLY -->
@@ -25,8 +27,8 @@ This section is generated from public exports and real docstrings.
 
 ## Surface Summary
 
-- Primary facades: `FlextApi`, `FlextApiAsyncClient`, `FlextApiCli`,
-  `FlextApiClient`, `FlextApiClientBase`, `FlextApiConfig` (+7 more)
+- Primary facades: `FlextApi`, `FlextApiAsyncClient`, `FlextApiCli`, `FlextApiClient`,
+  `FlextApiClientBase`, `FlextApiConfig` (+7 more)
 - Generated module pages: `12`
 
 Back to [project docs](../index.md).

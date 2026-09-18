@@ -1,20 +1,22 @@
 # Schemas API Reference
 
 <!-- TOC START -->
+
 - [Public HTTP Models](#public-http-models)
 - [What Is Not Implemented](#what-is-not-implemented)
+
 <!-- TOC END -->
 
 This page documents the schema/model story for `flext-api`.
 
 > **Current status:** `flext-api` does not expose OpenAPI/JSON Schema generation
-> utilities or request/response schema builders beyond the public Pydantic models
-> under `m.Api`. Applications should use `m.Api.HttpRequest` and
-> `m.Api.HttpResponse` as the canonical HTTP schema types.
+> utilities or request/response schema builders beyond the public Pydantic models under
+> `m.Api`. Applications should use `m.Api.HttpRequest` and `m.Api.HttpResponse` as the
+> canonical HTTP schema types.
 
 ## Public HTTP Models
 
-```python
+``` python
 from __future__ import annotations
 
 from flext_api import c, m
@@ -36,7 +38,8 @@ response = m.Api.create_response(
     body={"id": 1, "name": "Alice"},
 )
 assert response.success
-assert response.status_code == 201```
+assert response.status_code == 201
+```
 ## What Is Not Implemented
 
 The following schema concepts are **not** part of the current public API and
@@ -49,3 +52,4 @@ are therefore not documented as executable examples:
 
 If a future release adds schema generation helpers, this page will be updated
 with real, runnable examples.
+````
