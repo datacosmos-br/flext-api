@@ -52,7 +52,7 @@ a railway result-oriented lifecycle contract.
 
 ### Protocol Plugin Manager
 
-````python
+``` python
 from __future__ import annotations
 
 from flext_api import FlextApiProtocolPluginManager, FlextApiProtocolPluginTypes, p, r
@@ -84,7 +84,8 @@ resolve_result = manager.resolve_plugin("json-schema")
 assert resolve_result.success
 assert resolve_result.unwrap().version == "1.0.0"
 
-assert manager.unload_plugin("json-schema").success```
+assert manager.unload_plugin("json-schema").success
+```
 ### HTTP Protocol Facade
 
 ```python
@@ -116,7 +117,8 @@ class FakeHttpApi(HttpOnlyApi):
 api = FakeHttpApi(runtime_settings=FlextApiSettings(base_url="https://example.com"))
 result = api.health_check()
 assert result.success
-assert result.unwrap().body["status"] == "healthy"```
+assert result.unwrap().body["status"] == "healthy"
+```
 ## What Is Not Implemented
 
 The following protocols are **not** currently exposed by `flext-api`:
@@ -133,4 +135,5 @@ updated with real, runnable examples.
 ## References
 
 - GitHub Issue: #159 - Protocol Plugin Architecture
+
 ````

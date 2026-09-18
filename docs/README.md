@@ -39,7 +39,7 @@ Pydantic v2 request/response models, and railway-oriented error handling through
 > implemented. Additional protocols, middleware, and schema generation are not yet part
 > of the public API.
 
----
+______________________________________________________________________
 
 ## Overview
 
@@ -62,7 +62,7 @@ enterprise-grade patterns: typed settings, validated request/response models, an
 - **FLEXT Data Platform** → HTTP operations for data pipeline orchestration
 - **FLEXT Projects** → Shared HTTP facade preventing duplicate implementations
 
----
+______________________________________________________________________
 
 ## Current Source Structure
 
@@ -77,13 +77,13 @@ src/flext_api/
 ├── constants.py             # Public constants facade
 ├── _constants/              # Constant implementations
 ├── models.py                # Public models facade
-├── _models/                 # Model implementations (request, response, client, storage, webhook)
+├── _models/                 # Model implementations
 ├── protocols.py             # Public protocols facade
 ├── _protocols/              # Protocol implementations (HTTP, plugins, transports, etc.)
 ├── typings.py               # Public typings facade
 ├── _typings/                # Typing implementations
 ├── utilities.py             # Public utilities facade
-├── _utilities/              # Utility implementations (client, request utils, serializers, etc.)
+├── _utilities/              # Utility implementations
 ├── _settings.py             # Settings singleton
 └── py.typed                 # Type checking marker
 ```
@@ -98,7 +98,7 @@ src/flext_api/
 - **Configuration SSOT** — `config/*.yaml` and `FlextApiSettings` as the single source
   of truth
 
----
+______________________________________________________________________
 
 ## Documentation Structure
 
@@ -116,7 +116,7 @@ src/flext_api/
 - **[Testing Guide](guides/testing.md)** — Testing strategies and examples
 - **[Troubleshooting](guides/troubleshooting.md)** — Common issues and solutions
 
----
+______________________________________________________________________
 
 ## Quick Start
 
@@ -132,7 +132,7 @@ uv sync --package flext-api
 
 ### Basic HTTP Client Usage
 
-````python
+``` python notest
 from __future__ import annotations
 
 from flext_api import FlextApi, FlextApiSettings
@@ -146,7 +146,8 @@ if result.success:
     print(f"Status: {response.status_code}")
     print(f"Body: {response.body}")
 else:
-    print(f"Error: {result.error}")```
+    print(f"Error: {result.error}")
+    ```
 ### Settings-Driven Configuration
 
 ```python
@@ -162,7 +163,8 @@ settings = FlextApiSettings(
 )
 
 print(settings.Api.base_url)
-print(settings.Api.timeout)```
+print(settings.Api.timeout)
+```
 ### FastAPI Application Setup
 
 A FastAPI application factory is **not** currently part of the public API. Use
@@ -183,18 +185,20 @@ uv run pytest --markdown-docs -q
 # Run specific test categories
 uv run pytest tests/unit/        # Unit tests
 uv run pytest tests/integration/ # Integration tests
-uv run pytest tests/e2e/          # End-to-end tests```
+uv run pytest tests/e2e/          # End-to-end tests
+```
+
 ______________________________________________________________________
 
 ## Current Status
 
-| Metric                 | Status       | Details                                          |
-| ---------------------- | ------------ | ------------------------------------------------ |
-| **Core Functionality** | Complete     | HTTP client facade and settings implemented        |
-| **Test Coverage**      | In progress  | Markdown examples validated; package tests growing |
-| **Type Safety**        | Strict       | FLEXT pattern compliance and Pydantic v2 models  |
-| **Code Quality**       | In progress  | Ruff / Pyrefly gates enforced via `make check`   |
-| **FLEXT Integration**  | Active       | Full flext-core facade integration               |
+| Metric                 | Status      | Details                                      |
+| ---------------------- | ----------- | -------------------------------------------- |
+| **Core Functionality** | Complete    | HTTP client facade and settings implemented  |
+| **Test Coverage**      | In progress | Examples validated; package tests growing    |
+| **Type Safety**        | Strict      | FLEXT patterns and Pydantic v2 models        |
+| **Code Quality**       | In progress | Ruff / Pyrefly gates via `make check`        |
+| **FLEXT Integration**  | Active      | Full flext-core facade integration           |
 
 ### Production Readiness
 

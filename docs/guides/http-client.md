@@ -18,7 +18,7 @@ FLEXT-API exposes two HTTP entry points:
 
 ## Facade Usage
 
-````python
+```python
 from __future__ import annotations
 from flext_api import FlextApi, FlextApiSettings
 
@@ -35,7 +35,9 @@ if result.success:
     response = result.value
     print(response.status_code)
 else:
-    print(result.error or "request failed")```
+    print(result.error or "request failed")
+```
+
 ## Client Usage
 
 ```python
@@ -53,7 +55,9 @@ request = m.Api.HttpRequest.model_validate({
     "timeout": settings.Api.timeout,
 })
 
-result = client.request(request)```
+result = client.request(request)
+```
+
 ## Request Body
 
 Use the facade for typical application code:
@@ -67,8 +71,11 @@ result = api.post(
     "/users",
     data={"name": "Alice", "email": "alice@example.com"},
     headers={"Content-Type": "application/json"},
-)```
-Use `request_kwargs` for query parameters and request options that belong to `m.Api.HttpRequest` normalization.
+)
+```
+
+Use `request_kwargs` for query parameters and request options that belong to
+`m.Api.HttpRequest` normalization.
 
 ## Error Handling
 
@@ -83,6 +90,9 @@ if result.failure:
     print(result.error or "HTTP request failed")
 else:
     response = result.value
-    print(response.status_code)```
-The result contract is the canonical FLEXT railway contract: inspect `success` or `failure`, then use `value`, `error`, `unwrap()`, or higher-order methods such as `map` and `flat_map`.
-````
+    print(response.status_code)
+```
+
+The result contract is the canonical FLEXT railway contract: inspect `success` or
+`failure`, then use `value`, `error`, `unwrap()`, or higher-order methods such as `map`
+and `flat_map`.

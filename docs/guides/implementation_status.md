@@ -34,8 +34,8 @@
 platform.
 
 **Current Status**: Production foundation implemented · 23 tests passing, 76 failing
-(28% pass rate) · 2,927 lines across 14 modules **Quality Gates**: Linting ✅ | Type
-checking ❌ (295 errors) | Security ✅
+(28% pass rate) · 2,927 lines across 14 modules **Quality Gates**: Linting ✅ ·
+checking ❌ (295 errors) · Security ✅
 
 ## Implementation Progress Summary
 

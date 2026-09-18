@@ -48,7 +48,7 @@ as standalone scripts and can also be collected by pytest.
 Unit tests exercise one behavior at a time. A `FakeApi` subclass replaces the real HTTP
 backend so the tests run without network access.
 
-````python
+```python
 from __future__ import annotations
 from flext_api import FlextApi, FlextApiSettings, m, p, r
 
@@ -99,7 +99,9 @@ def test_not_found_is_classified() -> None:
 
 
 test_get_users_returns_success()
-test_not_found_is_classified()```
+test_not_found_is_classified()
+```
+
 Model validation can also be tested in isolation.
 
 ```python
@@ -125,10 +127,13 @@ def test_response_model_classifies_errors() -> None:
 
 
 test_request_model_requires_valid_url()
-test_response_model_classifies_errors()```
+test_response_model_classifies_errors()
+```
+
 ## Integration Tests
 
-Integration tests exercise a sequence of API calls and transformations. Use a stateful `FakeApi` subclass to simulate the backend and assert the combined outcome.
+Integration tests exercise a sequence of API calls and transformations. Use a stateful
+`FakeApi` subclass to simulate the backend and assert the combined outcome.
 
 ```python
 from __future__ import annotations
@@ -193,7 +198,9 @@ def test_create_and_list_orders() -> None:
     assert len(orders) == 1
 
 
-test_create_and_list_orders()```
+test_create_and_list_orders()
+```
+
 ## Running Tests
 
 Use the root `make` commands as the canonical test runner.
@@ -203,10 +210,13 @@ Use the root `make` commands as the canonical test runner.
 make test PROJECT=flext-api
 
 # Run the markdown examples
-uv run pytest --markdown-docs docs/testing.md guides/http-client.md guides/testing.md -q```
+uv run pytest --markdown-docs docs/testing.md guides/http-client.md guides/testing.md -q
+```
+
 ## Test Data and Helpers
 
-Keep tests clean by extracting reusable helper functions. These can be used in standalone scripts or in pytest-collected test files.
+Keep tests clean by extracting reusable helper functions. These can be used in
+standalone scripts or in pytest-collected test files.
 
 ```python
 from __future__ import annotations
@@ -237,10 +247,13 @@ client = make_client(settings)
 assert client.base_url == "https://api.example.com"
 
 api = make_api(settings)
-assert isinstance(api, FlextApi)```
+assert isinstance(api, FlextApi)
+```
+
 ## Mocking External APIs
 
-Do not use `unittest.mock` in executable examples. Use a small `FakeApi` subclass to return deterministic responses and test the real `FlextApi` contract.
+Do not use `unittest.mock` in executable examples. Use a small `FakeApi` subclass to
+return deterministic responses and test the real `FlextApi` contract.
 
 ```python
 from __future__ import annotations
@@ -271,21 +284,28 @@ def test_with_fake_api() -> None:
     assert response.body.get("name") == "Test User"
 
 
-test_with_fake_api()```
+test_with_fake_api()
+```
+
 ## Success Metrics
 
 - **Test Pass Rate**: 100% of collected tests.
 - **Coverage**: follow the thresholds in `pyproject.toml`.
-- **Determinism**: network-dependent tests should use `FakeApi` or be clearly marked as integration/e2e tests against a known environment.
-- **Maintainability**: tests validate the real `FlextApi` contract and avoid vague assertions.
+- **Determinism**: network-dependent tests should use `FakeApi` or be clearly marked as
+  integration/e2e tests against a known environment.
+- **Maintainability**: tests validate the real `FlextApi` contract and avoid vague
+  assertions.
 
 ## Risk Mitigation
 
-- **Flaky Tests**: Use `FakeApi` subclasses for deterministic unit and integration tests.
-- **External Service Dependencies**: Keep real network tests in `tests/e2e/` and run them only in controlled environments.
-- **Coverage Gaps**: Test success paths, error status codes, model validation, and request/response serialization.
+- **Flaky Tests**: Use `FakeApi` subclasses for deterministic unit and integration
+  tests.
+- **External Service Dependencies**: Keep real network tests in `tests/e2e/` and run
+  them only in controlled environments.
+- **Coverage Gaps**: Test success paths, error status codes, model validation, and
+  request/response serialization.
 
 ---
 
-**Next Priority**: Keep the markdown examples in `docs/testing.md` and `guides/testing.md` aligned with the current `FlextApi` contract as the library evolves.
-````
+**Next Priority**: Keep the markdown examples in `docs/testing.md` and
+`guides/testing.md` aligned with the current `FlextApi` contract as the library evolves.

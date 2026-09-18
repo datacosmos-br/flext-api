@@ -49,7 +49,7 @@ Protocol Layer
 
 Primary protocol implementation for REST APIs and HTTP-based communication.
 
-````python
+```python
 from __future__ import annotations
 
 from flext_api import FlextApi, FlextApiClient, FlextApiSettings, c, m, p, r
@@ -95,7 +95,9 @@ result = api.get("/users", request_kwargs={"params": {"limit": "10"}})
 if result.success:
     response = result.unwrap()
     print(f"Status: {response.status_code}")
-    print(f"Body: {response.body}")```
+    print(f"Body: {response.body}")
+```
+
 **Key Features:**
 
 - Standard HTTP methods (GET, POST, PUT, PATCH, DELETE)
@@ -132,7 +134,9 @@ print(f"Success: {response.success}")
 
 # Wrap it in a Result when returning from a client method
 result = r[m.Api.HttpResponse].ok(response)
-print(f"Result success: {result.success}")```
+print(f"Result success: {result.success}")
+```
+
 ## GraphQL Protocol Implementation
 
 ### GraphQL Support
@@ -161,7 +165,8 @@ This feature is not currently implemented in the public API.
 
 ### Storage Backend Object Storage
 
-Protocol implementation for various storage backends (local filesystem, cloud storage, etc.).
+Protocol implementation for various storage backends (local filesystem, cloud storage,
+etc.).
 
 This feature is not currently implemented in the public API.
 
@@ -181,21 +186,21 @@ This feature is not currently implemented in the public API.
 
 ## Quality Metrics
 
-| Module                          | Coverage | Status    | Description                        |
-| ------------------------------- | -------- | --------- | ---------------------------------- |
-| `protocols/http.py`             | 90%      | ✅ Stable | HTTP/REST implementation           |
-| `protocols/graphql.py`          | —        | ❌ N/A    | Not implemented in public API      |
-| `protocols/websocket.py`        | —        | ❌ N/A    | Not implemented in public API      |
-| `protocols/sse.py`              | —        | ❌ N/A    | Not implemented in public API      |
-| `protocols/storage_backend.py`  | —        | ❌ N/A    | Not implemented in public API      |
-| `protocol_stubs/grpc_stub.py`   | —        | ❌ N/A    | Not implemented in public API      |
-| `protocol_stubs/protobuf_stub.py` | —      | ❌ N/A    | Not implemented in public API      |
+| Module                            | Coverage | Status | Description              |
+| --------------------------------- | -------- | ------ | ------------------------ |
+| `protocols/http.py`               | 90%      | Stable | HTTP/REST implementation |
+| `protocols/graphql.py`            | —        | N/A    | Not implemented          |
+| `protocols/websocket.py`          | —        | N/A    | Not implemented          |
+| `protocols/sse.py`                | —        | N/A    | Not implemented          |
+| `protocols/storage_backend.py`    | —        | N/A    | Not implemented          |
+| `protocol_stubs/grpc_stub.py`     | —        | N/A    | Not implemented          |
+| `protocol_stubs/protobuf_stub.py` | —        | N/A    | Not implemented          |
 
 ## Usage Examples
 
 ### HTTP API Client
 
-```python
+```python notest
 from __future__ import annotations
 
 from flext_api import FlextApi, FlextApiClient, FlextApiSettings, c, m, p, r
@@ -256,7 +261,9 @@ if user:
 
 created = client.create_user({"name": "Bob", "email": "bob@example.com"})
 if created:
-    print(f"Created user: {created['name']} ({created['id']})")```
+    print(f"Created user: {created['name']} ({created['id']})")
+```
+
 ### Protocol Plugin System
 
 ```python
@@ -338,6 +345,10 @@ if resolved.success:
     print(f"Resolved plugin: {plugin.name} v{plugin.version}")
 
 shutdown_result = manager.shutdown_all()
-assert shutdown_result.success```
-This protocol-based architecture provides a flexible foundation for supporting multiple communication patterns while maintaining consistent error handling and type safety across all protocols. The public HTTP surface and plugin manager are available today; additional protocols can be added through the plugin system.
-````
+assert shutdown_result.success
+```
+
+This protocol-based architecture provides a flexible foundation for supporting multiple
+communication patterns while maintaining consistent error handling and type safety
+across all protocols. The public HTTP surface and plugin manager are available today;
+additional protocols can be added through the plugin system.

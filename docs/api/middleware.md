@@ -20,7 +20,7 @@ The idiomatic way to add behavior around HTTP calls is to subclass `FlextApi` an
 override the verbs you care about. The example below adds request/response logging
 without relying on any non-existent middleware API.
 
-````python
+``` python
 from __future__ import annotations
 
 from flext_api import FlextApi, FlextApiSettings, m, p, r
@@ -59,7 +59,8 @@ class FakeLoggingApi(LoggingApi):
 api = FakeLoggingApi(runtime_settings=FlextApiSettings(base_url="https://example.com"))
 result = api.get("/users")
 assert result.success
-assert result.unwrap().status_code == 200```
+assert result.unwrap().status_code == 200
+```
 ## What Is Not Implemented
 
 The following middleware concepts are **not** part of the current public API

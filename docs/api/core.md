@@ -28,7 +28,7 @@ executes validated `m.Api.HttpRequest` instances through `request(...)`. It does
 expose `get/post/put/delete/patch` directly; those methods live on the `FlextApi`
 facade.
 
-````python
+``` python notest
 from __future__ import annotations
 
 from flext_api import FlextApiClient, FlextApiSettings, c, m, p
@@ -61,7 +61,8 @@ if result.success:
     print(response.status_code)
     print(response.body)
 else:
-    print(f"Transport error: {result.error}")```
+    print(f"Transport error: {result.error}")
+    ```
 **Key Features:**
 
 - Type-safe HTTP operations via Pydantic models
@@ -100,7 +101,8 @@ if result.success:
     print(f"Status: {response.status_code}")
     print(f"Body: {response.body}")
 else:
-    print(f"Error: {result.error}")```
+    print(f"Error: {result.error}")
+    ```
 ### HTTP Methods
 
 All methods return `p.Result[m.Api.HttpResponse]`.
@@ -118,7 +120,8 @@ result: p.Result[m.Api.HttpResponse] = api.get("/users")
 
 result = api.get("/users", request_kwargs={"params": {"limit": 10, "offset": 0}})
 
-result = api.get("/users", headers={"Accept": "application/json"})```
+result = api.get("/users", headers={"Accept": "application/json"})
+```
 **POST/PUT/PATCH/DELETE Requests:**
 
 ```python
@@ -136,7 +139,8 @@ put_result = api.put("/users/123", data={"name": "Updated Name"})
 
 patch_result = api.patch("/users/123", data={"email": "new@example.com"})
 
-delete_result = api.delete("/users/123")```
+delete_result = api.delete("/users/123")
+```
 ## Configuration
 
 ### FlextApiSettings - Configuration Model
@@ -166,7 +170,8 @@ settings_nested = FlextApiSettings(
 
 # Access the resolved namespace values.
 print(settings.Api.base_url)
-print(settings.Api.timeout)```
+print(settings.Api.timeout)
+```
 To extend settings with custom fields, subclass `FlextApiSettings` and add fields
 outside the `Api` namespace or declare an additional nested group.
 
@@ -185,7 +190,8 @@ class MyApiConfig(FlextApiSettings):
 
 config = MyApiConfig(base_url="https://api.example.com", custom_setting="custom")
 assert config.custom_setting == "custom"
-assert config.Api.base_url == "https://api.example.com"```
+assert config.Api.base_url == "https://api.example.com"
+```
 ## HTTP Models
 
 ### Request/Response Models
@@ -215,7 +221,8 @@ response = m.Api.create_response(
     body={"id": 1, "name": "Alice"},
 )
 assert response.success
-assert response.status_code == 201```
+assert response.status_code == 201
+```
 ## HTTP Utilities
 
 ### RequestUtils - Helper Functions
@@ -250,12 +257,13 @@ print(merged_result.unwrap())
 # Coerce and validate timeouts.
 timeout_result = u.Api.RequestUtils.coerce_positive_timeout(5.0)
 assert timeout_result.success
-print(timeout_result.unwrap())```
+print(timeout_result.unwrap())
+```
 ## Usage Examples
 
 ### Complete HTTP Client Example
 
-```python
+```python notest
 from __future__ import annotations
 
 from flext_api import FlextApi, FlextApiSettings, m, p, r
@@ -353,7 +361,8 @@ if update_result.success:
 
 delete_result = client.delete_user(1)
 if delete_result.success:
-    print(f"Deleted user, status: {delete_result.unwrap().status_code}")```
+    print(f"Deleted user, status: {delete_result.unwrap().status_code}")
+    ```
 This core API provides the public HTTP surface for `flext-api`: typed settings, a
 validated request model, a monadic response model, and the `FlextApi` facade for
 convenient HTTP verbs.

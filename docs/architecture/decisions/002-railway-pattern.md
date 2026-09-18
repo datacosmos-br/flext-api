@@ -64,7 +64,7 @@ Every public method returns `p.Result[T]`. Operations are composed using `flat_m
 
 ### Option 1: Traditional Exceptions
 
-````python
+``` python notest
 from __future__ import annotations
 
 import httpx
@@ -74,7 +74,8 @@ def get_user(user_id: int) -> dict:
     """Traditional exception-based example (not used in FLEXT-API)."""
     response = httpx.get(f"https://api.example.com/users/{user_id}")
     response.raise_for_status()
-    return response.json()```
+    return response.json()
+    ```
 ### Option 2: Result Pattern (Custom Implementation)
 
 ```python
@@ -87,7 +88,8 @@ class Result:
     def __init__(self, success: bool, value=None, error=None):
         self.success = success
         self.value = value
-        self.error = error```
+        self.error = error
+        ```
 ### Option 3: Hybrid Approach
 
 - **Description**: Use railway pattern internally but expose traditional APIs
@@ -142,10 +144,11 @@ class FakeUserApi(UserApi):
 api = FakeUserApi(runtime_settings=FlextApiSettings(base_url="https://example.com"))
 result = api.fetch_user(123)
 assert result.success
-assert result.unwrap().body["name"] == "Alice"```
+assert result.unwrap().body["name"] == "Alice"
+```
 ### Usage in Application Code
 
-```python
+```python notest
 from __future__ import annotations
 
 from flext_api import FlextApi, FlextApiSettings, m, p, r
@@ -171,7 +174,8 @@ if result.success:
     profile = result.unwrap().body
     print(f"Found profile: {profile['bio']}")
 else:
-    print(f"Error: {result.error}")```
+    print(f"Error: {result.error}")
+    ```
 ### Testing Railway Code
 
 ```python
@@ -210,7 +214,8 @@ def test_get_user_not_found():
 
 
 test_get_user_success()
-test_get_user_not_found()```
+test_get_user_not_found()
+```
 ## Migration Strategy
 
 - [x] Implement `r` integration in all HTTP operations
@@ -235,9 +240,11 @@ from flext_api import r
 
 r[str].fail("Invalid user ID: must be a positive integer")
 r[str].fail("HTTP request timeout after 30 seconds")
-r[str].fail("JSON parsing failed: invalid response format")```
+r[str].fail("JSON parsing failed: invalid response format")
+```
 ## References
 
 - [Railway-Oriented Programming](https://fsharpforfunandprofit.com/rop/)
 - GitHub Issue: #156 - Railway Pattern Implementation
+
 ````

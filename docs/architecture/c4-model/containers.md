@@ -45,15 +45,15 @@ Person(developer, "Application Developer", "Python developer using FLEXT-API")
 Person(end_user, "End User", "Uses FLEXT-API based applications")
 
 System_Boundary(flext_api_system, "FLEXT-API System") {
-    Container(api_client, "HTTP Client Container", "Python/FastAPI", "Enterprise HTTP client with connection pooling, retry logic, and railway error handling")
-    Container(fastapi_app, "FastAPI Application Container", "Python/FastAPI", "Web API server with middleware, routing, and request processing")
-    Container(protocol_layer, "Protocol Layer Container", "Python", "Protocol abstractions for HTTP, GraphQL, WebSocket, SSE, and custom protocols")
-    Container(storage_layer, "Storage Layer Container", "Python", "Multi-backend file storage with S3, GCS, Azure, and local filesystem support")
-    Container(config_layer, "Configuration Layer", "Python/Pydantic", "Environment-aware configuration management with validation")
+    Container(api_client, "HTTP Client", "FastAPI", "Enterprise HTTP client")
+    Container(fastapi_app, "FastAPI App", "FastAPI", "Web API server")
+    Container(protocol_layer, "Protocol Layer", "Python", "Protocol abstractions")
+    Container(storage_layer, "Storage Layer", "Python", "Multi-backend storage")
+    Container(config_layer, "Configuration", "Pydantic", "Config management")
 }
 
 System_Boundary(flext_core_system, "FLEXT-Core Foundation") {
-    Container(flext_core, "FLEXT-Core Library", "Python", "Foundation patterns: r, FlextContainer, FlextModels, FlextLogger")
+    Container(flext_core, "FLEXT-Core Library", "Python", "Foundation patterns and facades")
 }
 
 System_Ext(httpx_lib, "HTTPX Library", "Python HTTP library")

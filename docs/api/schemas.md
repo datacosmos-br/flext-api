@@ -16,7 +16,7 @@ This page documents the schema/model story for `flext-api`.
 
 ## Public HTTP Models
 
-````python
+``` python
 from __future__ import annotations
 
 from flext_api import c, m
@@ -38,7 +38,8 @@ response = m.Api.create_response(
     body={"id": 1, "name": "Alice"},
 )
 assert response.success
-assert response.status_code == 201```
+assert response.status_code == 201
+```
 ## What Is Not Implemented
 
 The following schema concepts are **not** part of the current public API and
