@@ -238,7 +238,9 @@ class UserApiClient:
     """Client supporting HTTP operations through the real FLEXT-API facade."""
 
     def __init__(self, base_url: str = "https://api.example.com"):
-        self.api = FlextApi(runtime_settings=FlextApiSettings(base_url=base_url, timeout=10.0))
+        self.api = FlextApi(
+            runtime_settings=FlextApiSettings(base_url=base_url, timeout=10.0)
+        )
         # Wire a fake client so the example runs without network access
         self.api._client = FakeHttpClient(runtime_settings=self.api.settings)
 
