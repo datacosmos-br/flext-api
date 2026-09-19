@@ -28,7 +28,7 @@ executes validated `m.Api.HttpRequest` instances through `request(...)`. It does
 expose `get/post/put/delete/patch` directly; those methods live on the `FlextApi`
 facade.
 
-````python notest
+```python notest
 from __future__ import annotations
 
 from flext_api import FlextApiClient, FlextApiSettings, c, m, p
@@ -62,7 +62,8 @@ if result.success:
     print(response.body)
 else:
     print(f"Transport error: {result.error}")
-    ```
+```
+
 **Key Features:**
 
 - Type-safe HTTP operations via Pydantic models
@@ -80,8 +81,8 @@ else:
 
 ### FlextApi - Unified Facade
 
-`FlextApi` is the public entry point. It creates and owns a `FlextApiClient`
-lazily and exposes convenience methods for each HTTP verb.
+`FlextApi` is the public entry point. It creates and owns a `FlextApiClient` lazily and
+exposes convenience methods for each HTTP verb.
 
 ```python
 from __future__ import annotations
@@ -102,7 +103,8 @@ if result.success:
     print(f"Body: {response.body}")
 else:
     print(f"Error: {result.error}")
-    ```
+```
+
 ### HTTP Methods
 
 All methods return `p.Result[m.Api.HttpResponse]`.
@@ -121,7 +123,7 @@ result: p.Result[m.Api.HttpResponse] = api.get("/users")
 result = api.get("/users", request_kwargs={"params": {"limit": 10, "offset": 0}})
 
 result = api.get("/users", headers={"Accept": "application/json"})
-````
+```
 
 **POST/PUT/PATCH/DELETE Requests:**
 
@@ -268,7 +270,7 @@ print(timeout_result.unwrap())
 
 ### Complete HTTP Client Example
 
-````python notest
+```python notest
 from __future__ import annotations
 
 from flext_api import FlextApi, FlextApiSettings, m, p, r
@@ -367,8 +369,8 @@ if update_result.success:
 delete_result = client.delete_user(1)
 if delete_result.success:
     print(f"Deleted user, status: {delete_result.unwrap().status_code}")
-    ```
+```
+
 This core API provides the public HTTP surface for `flext-api`: typed settings, a
 validated request model, a monadic response model, and the `FlextApi` facade for
 convenient HTTP verbs.
-````

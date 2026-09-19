@@ -64,7 +64,7 @@ Every public method returns `p.Result[T]`. Operations are composed using `flat_m
 
 ### Option 1: Traditional Exceptions
 
-````python notest
+```python notest
 from __future__ import annotations
 
 import httpx
@@ -75,7 +75,8 @@ def get_user(user_id: int) -> dict:
     response = httpx.get(f"https://api.example.com/users/{user_id}")
     response.raise_for_status()
     return response.json()
-    ```
+```
+
 ### Option 2: Result Pattern (Custom Implementation)
 
 ```python
@@ -89,7 +90,8 @@ class Result:
         self.success = success
         self.value = value
         self.error = error
-        ```
+```
+
 ### Option 3: Hybrid Approach
 
 - **Description**: Use railway pattern internally but expose traditional APIs
@@ -145,11 +147,11 @@ api = FakeUserApi(runtime_settings=FlextApiSettings(base_url="https://example.co
 result = api.fetch_user(123)
 assert result.success
 assert result.unwrap().body["name"] == "Alice"
-````
+```
 
 ### Usage in Application Code
 
-````python notest
+```python notest
 from __future__ import annotations
 
 from flext_api import FlextApi, FlextApiSettings, m, p, r
@@ -176,7 +178,8 @@ if result.success:
     print(f"Found profile: {profile['bio']}")
 else:
     print(f"Error: {result.error}")
-    ```
+```
+
 ### Testing Railway Code
 
 ```python
@@ -216,7 +219,7 @@ def test_get_user_not_found():
 
 test_get_user_success()
 test_get_user_not_found()
-````
+```
 
 ## Migration Strategy
 
@@ -249,7 +252,3 @@ r[str].fail("JSON parsing failed: invalid response format")
 
 - [Railway-Oriented Programming](https://fsharpforfunandprofit.com/rop/)
 - GitHub Issue: #156 - Railway Pattern Implementation
-
-```
-
-```
