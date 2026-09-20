@@ -6,8 +6,8 @@ name: flext-api
 repository:
   name: flext-api
   distribution: flext-api
-  provider: flext-sh
-  url: https://github.com/flext-sh/flext-api.git
+  provider: datacosmos-br
+  url: https://github.com/datacosmos-br/flext-api.git
   path: .
   role: standalone
   state: active
