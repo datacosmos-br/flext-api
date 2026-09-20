@@ -280,7 +280,9 @@ class UserApiClient:
     """Thin wrapper over the FlextApi facade for a user-management API."""
 
     def __init__(self, base_url: str = "https://api.example.com"):
-        self.api = FlextApi(runtime_settings=FlextApiSettings(base_url=base_url, timeout=10.0))
+        self.api = FlextApi(
+            runtime_settings=FlextApiSettings(base_url=base_url, timeout=10.0)
+        )
 
     def list_users(self, limit: int = 10) -> p.Result[m.Api.HttpResponse]:
         return self.api.get("/users", request_kwargs={"params": {"_limit": limit}})
